@@ -1,4 +1,4 @@
-package cn.huang.SerializableTest;
+ï»¿package cn.huang.SerializableTest;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -18,17 +18,17 @@ public class TestSerialVersionUID {
 	public static void main(String[] args) throws FileNotFoundException, IOException, ClassNotFoundException {
 		// TODO Auto-generated method stub
 		/*
-		 * ĞòÁĞ»¯µÄ²½ÖèÊÇÕâÑùµÄ£º
-		 * 1¡¢½¨Á¢Ò»¸ö¶ÔÏóÊä³öÁ÷£¨ÎªÊ²Ã´ÊÇÊä³öÁ÷ÄØ£¿ÒòÎªÊÇ½«¶ÔÏó´ÓÄÚ´æÖĞ¶ÁÈ¡³öÀ´£©£¬²¢Ö¸¶¨ÒªĞòÁĞ»¯µÄ¶ÔÏóµÄ¾ßÌåÎ»ÖÃ£¬ÕâÀïÀûÓÃFileInputStream¹ØÁªÒ»¸öÎÄ¼ş£¬f:\\Person.txt
-		 * 2¡¢ÀûÓÃ¶ÔÏóÊä³öÁ÷µÄwriteObject·½·¨£¬½«person¶ÔÏóĞ´µ½ÎÄ¼şÖĞ¡£¡¢
-		 * 3¡¢¹Ø±ÕÁ÷¶ÔÏó¡£
+		 * åºåˆ—åŒ–çš„æ­¥éª¤æ˜¯è¿™æ ·çš„ï¼š
+		 * 1ã€å»ºç«‹ä¸€ä¸ªå¯¹è±¡è¾“å‡ºæµï¼ˆä¸ºä»€ä¹ˆæ˜¯è¾“å‡ºæµå‘¢ï¼Ÿå› ä¸ºæ˜¯å°†å¯¹è±¡ä»å†…å­˜ä¸­è¯»å–å‡ºæ¥ï¼‰ï¼Œå¹¶æŒ‡å®šè¦åºåˆ—åŒ–çš„å¯¹è±¡çš„å…·ä½“ä½ç½®ï¼Œè¿™é‡Œåˆ©ç”¨FileInputStreamå…³è”ä¸€ä¸ªæ–‡ä»¶ï¼Œf:\\Person.txt
+		 * 2ã€åˆ©ç”¨å¯¹è±¡è¾“å‡ºæµçš„writeObjectæ–¹æ³•ï¼Œå°†personå¯¹è±¡å†™åˆ°æ–‡ä»¶ä¸­ã€‚ã€
+		 * 3ã€å…³é—­æµå¯¹è±¡ã€‚
 		 */
 		SerializeCustom();
 		/*
-		 * ·´ĞòÁĞ»¯µÄ²½Öè£º
-		 * 1¡¢½¨Á¢Ò»¸ö¶ÔÏóÊäÈëÁ÷£¨´ÓÓ²ÅÌ½«¶ÔÏóÄÃµ½ÄÚ´æÖĞ£©£¬²¢Ö¸¶¨Òª´ÓÄÄ¸öÎÄ¼şÖĞÄÃ¶ÔÏó£¬ÕâÀïÒ²ÊÇÓÃFileInputStream¹ØÁªÒ»¸öÎÄ¼ş¡£
-		 * 2¡¢ÀûÓÃ¶ÔÏóÁ÷µÄreadObject·½·¨µÃµ½¶ÔÏó£¬²¢·µ»Ø¸Ã¶ÔÏóµÄÊµÀı¡£
-		 * 3¡¢Ê¹ÓÃ¸Ã¶ÔÏó¡£
+		 * ååºåˆ—åŒ–çš„æ­¥éª¤ï¼š
+		 * 1ã€å»ºç«‹ä¸€ä¸ªå¯¹è±¡è¾“å…¥æµï¼ˆä»ç¡¬ç›˜å°†å¯¹è±¡æ‹¿åˆ°å†…å­˜ä¸­ï¼‰ï¼Œå¹¶æŒ‡å®šè¦ä»å“ªä¸ªæ–‡ä»¶ä¸­æ‹¿å¯¹è±¡ï¼Œè¿™é‡Œä¹Ÿæ˜¯ç”¨FileInputStreamå…³è”ä¸€ä¸ªæ–‡ä»¶ã€‚
+		 * 2ã€åˆ©ç”¨å¯¹è±¡æµçš„readObjectæ–¹æ³•å¾—åˆ°å¯¹è±¡ï¼Œå¹¶è¿”å›è¯¥å¯¹è±¡çš„å®ä¾‹ã€‚
+		 * 3ã€ä½¿ç”¨è¯¥å¯¹è±¡ã€‚
 		 */
 		Custom p = DeserializeCustom();
 		System.out.println(p.toString());
@@ -39,7 +39,7 @@ public class TestSerialVersionUID {
 		ObjectInputStream ois = new ObjectInputStream(new FileInputStream("f:\\Custom.txt"));
 		
 		Custom c = (Custom) ois.readObject();
-		System.out.println("Custom¶ÔÏó·´ĞòÁĞ»¯³É¹¦£¡");
+		System.out.println("Customå¯¹è±¡ååºåˆ—åŒ–æˆåŠŸï¼");
 		return c;
 	}
 
@@ -47,12 +47,12 @@ public class TestSerialVersionUID {
 		// TODO Auto-generated method stub
 		Custom c = new Custom();
 		c.setAge(19);
-		c.setName("ÕÅÈı");
-		c.setStation("ÖĞ¹ú");
+		c.setName("å¼ ä¸‰");
+		c.setStation("ä¸­å›½");
 		
 		ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("f:\\Custom.txt"));
 		oos.writeObject(c);
-		System.out.println("Custom¶ÔÏóĞòÁĞ»¯³É¹¦£¡");
+		System.out.println("Customå¯¹è±¡åºåˆ—åŒ–æˆåŠŸï¼");
 		oos.close();
 	}
 
