@@ -1,16 +1,16 @@
-package cn.huang.filetest;
+ï»¿package cn.huang.filetest;
 
 import java.io.UnsupportedEncodingException;
 
 /**
- * Õâ¸ö³ÌĞòÊôÓÚÓĞÎÊÌâµÄ³ÌĞò£¬ÆäÖĞÓĞÒ»¸öbug£¬ÓĞĞ©ÄÜ¹»¼ÆËã³öÀ´ÓĞĞ©ÓÖ²»ÄÜ¼ÆËã³öÀ´£¬ÀıÈçÏÂÃæµÄÀı×Ó¾Í²»ÄÜ¼ÆËã³öÀ´
+ * è¿™ä¸ªç¨‹åºå±äºæœ‰é—®é¢˜çš„ç¨‹åºï¼Œå…¶ä¸­æœ‰ä¸€ä¸ªbugï¼Œæœ‰äº›èƒ½å¤Ÿè®¡ç®—å‡ºæ¥æœ‰äº›åˆä¸èƒ½è®¡ç®—å‡ºæ¥ï¼Œä¾‹å¦‚ä¸‹é¢çš„ä¾‹å­å°±ä¸èƒ½è®¡ç®—å‡ºæ¥
  * @author huangyejun
  *
  */
 
 public class ExtractStringTest {
 	public static void main(String[] args) throws UnsupportedEncodingException {
-		String str = "ÎÒe°®b¾°ĞãÖĞ»ªr£¬aaÔÚa";
+		String str = "æˆ‘eçˆ±bæ™¯ç§€ä¸­årï¼Œaaåœ¨a";
 		int num = trimGBK(str.getBytes("utf-8"),5);
 		System.out.println(num);
 		System.out.println(str.substring(0, num));

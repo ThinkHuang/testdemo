@@ -1,4 +1,4 @@
-package cn.huang.filetest;
+锘縫ackage cn.huang.filetest;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -19,8 +19,8 @@ public class PrepareDictatationTest {
 		
 		
 		
-			byte[] buf = new byte[is.available()];//得到预测的流中数据的大小
-			is.read(buf);//这时候所有的字节全部读取到了buf这个字节数组中了
+			byte[] buf = new byte[is.available()];//寰楀埌棰勬祴鐨勬祦涓暟鎹殑澶у皬
+			is.read(buf);//杩欐椂鍊欐墍鏈夌殑瀛楄妭鍏ㄩ儴璇诲彇鍒颁簡buf杩欎釜瀛楄妭鏁扮粍涓簡
 			
 			System.out.println(buf.length);
 		} catch (IOException e) {

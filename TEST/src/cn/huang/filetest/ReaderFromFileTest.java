@@ -1,4 +1,4 @@
-package cn.huang.filetest;
+ï»¿package cn.huang.filetest;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -7,8 +7,8 @@ import java.io.IOException;
 public class ReaderFromFileTest {
 
 	/**
-	 * ËµÃ÷£º¸Ã³ÌĞò²»¹»³ÉÊì£¬ÒòÎªjavaÖĞÊı×éµÄ³¤¶ÈÊÇ²»¿É¸ü¸ÄµÄ£¬µ«ÊÇ£¬¿ÉÒÔÄÃµ½ÀïÃæµÄÖµ£¬Ğ´Ò»¸ö·½·¨µÃµ½È¥³ı¿ÕÖµºóµÄÊı×é³¤¶È
-	 * ¸Ã¹¤¾ßÀàµÄÄÑµãÖ®Ò»¾ÍÊÇ¶¯Ì¬µÄ»ñµÃÊı×éµÄ³¤¶È¡£ÒòÎªÊı×éµÄ³¤¶ÈÂú×ãÌõ¼ş¾Í»á¼õĞ¡
+	 * è¯´æ˜ï¼šè¯¥ç¨‹åºä¸å¤Ÿæˆç†Ÿï¼Œå› ä¸ºjavaä¸­æ•°ç»„çš„é•¿åº¦æ˜¯ä¸å¯æ›´æ”¹çš„ï¼Œä½†æ˜¯ï¼Œå¯ä»¥æ‹¿åˆ°é‡Œé¢çš„å€¼ï¼Œå†™ä¸€ä¸ªæ–¹æ³•å¾—åˆ°å»é™¤ç©ºå€¼åçš„æ•°ç»„é•¿åº¦
+	 * è¯¥å·¥å…·ç±»çš„éš¾ç‚¹ä¹‹ä¸€å°±æ˜¯åŠ¨æ€çš„è·å¾—æ•°ç»„çš„é•¿åº¦ã€‚å› ä¸ºæ•°ç»„çš„é•¿åº¦æ»¡è¶³æ¡ä»¶å°±ä¼šå‡å°
 	 * @param args
 	 * @throws IOException 
 	 */
@@ -32,13 +32,13 @@ public class ReaderFromFileTest {
 			if(isName(chips[i])){
 				names[j] = chips[i];
 				System.out.println(names[j]);
-				//ÎÒ¹À¼ÆÕâÀï¾ÍÓĞJIT±àÒëÆ÷ÓÅ»¯ºóµÄ½á¹û£¬ÀıÈçÉÏ¾äµÄprintÖĞ²ÎÊıÎªchips[i]ºÍnames[i]µÄ½á¹ûÒ»Ñù£¬
-				//ÕâºÜÏÔÈ»ÊÇ±àÒëÆ÷ÓÅ»¯ºóµÄ½á¹û
+				//æˆ‘ä¼°è®¡è¿™é‡Œå°±æœ‰JITç¼–è¯‘å™¨ä¼˜åŒ–åçš„ç»“æœï¼Œä¾‹å¦‚ä¸Šå¥çš„printä¸­å‚æ•°ä¸ºchips[i]å’Œnames[i]çš„ç»“æœä¸€æ ·ï¼Œ
+				//è¿™å¾ˆæ˜¾ç„¶æ˜¯ç¼–è¯‘å™¨ä¼˜åŒ–åçš„ç»“æœ
 				j++;
 			}
 		}
 //		System.out.println("Delete before " + names.length);
-//		DelSameStr("ÕÅÈı" ,names);
+//		DelSameStr("å¼ ä¸‰" ,names);
 //		System.out.println("After Delete" + names.length);
 		String str1 = names[0];
 		int count = 1;
@@ -49,7 +49,7 @@ public class ReaderFromFileTest {
 			for(int n = i+1; n < dynamiclen; n++){
 				if(str1.equals(names[n])){
 					count++;
-					//ÕâÀïÔÚÕÒµ½ÁËÏàÍ¬µÄ×Ö·û´®ºó£¬¾Í½«×Ö·û´®Êı×éÖĞµÄËùÓĞÏàÍ¬µÄ×Ö·û´®¶¼É¾³ıµô
+					//è¿™é‡Œåœ¨æ‰¾åˆ°äº†ç›¸åŒçš„å­—ç¬¦ä¸²åï¼Œå°±å°†å­—ç¬¦ä¸²æ•°ç»„ä¸­çš„æ‰€æœ‰ç›¸åŒçš„å­—ç¬¦ä¸²éƒ½åˆ é™¤æ‰
 				}
 			}
 			System.out.println("name:" + str1 + "count:" + count);
@@ -59,7 +59,7 @@ public class ReaderFromFileTest {
 	}
 	
 	/*
-	 * É¾³ıÏàÍ¬×Ö·û´®ºóµÄ³¤¶È
+	 * åˆ é™¤ç›¸åŒå­—ç¬¦ä¸²åçš„é•¿åº¦
 	 */
 	private static int DelSameStr(String str1, String[] names) {
 		String strtmp;
@@ -77,7 +77,7 @@ public class ReaderFromFileTest {
 	}
 
 	/*
-	 * È¥³ıÊı×éÖĞµÄ¿Õ×Ö·û´®ºóµÄ³¤¶È
+	 * å»é™¤æ•°ç»„ä¸­çš„ç©ºå­—ç¬¦ä¸²åçš„é•¿åº¦
 	 */
 	private static int trimArray(String[] names) {
 		int i = 0; 
@@ -87,12 +87,12 @@ public class ReaderFromFileTest {
 				return i;
 			}
 		}
-		//System.out.println("È¥µô¿Õ´®ºóµÄÊı×é³¤¶È" + i);
+		//System.out.println("å»æ‰ç©ºä¸²åçš„æ•°ç»„é•¿åº¦" + i);
 		return i;
 	}
 
 	/*
-	 * ÅĞ¶ÏÕâ¸ö×Ö·û´®ÊÇ·ñÊÇname£¬µ±È»ÕâÀïµÄÅĞ¶Ï»¹±È½ÏµÄ¾ÖÏŞĞÔ£¬Èç¹û£¬ÏëÒª·¶Î§¸ü¹ãµÄ»°£¬±ØĞëÒªÓĞ¸ü¶àµÄÂß¼­²Ù×÷¡£
+	 * åˆ¤æ–­è¿™ä¸ªå­—ç¬¦ä¸²æ˜¯å¦æ˜¯nameï¼Œå½“ç„¶è¿™é‡Œçš„åˆ¤æ–­è¿˜æ¯”è¾ƒçš„å±€é™æ€§ï¼Œå¦‚æœï¼Œæƒ³è¦èŒƒå›´æ›´å¹¿çš„è¯ï¼Œå¿…é¡»è¦æœ‰æ›´å¤šçš„é€»è¾‘æ“ä½œã€‚
 	 */
 	private static boolean isName(String string) {
 		char temp;

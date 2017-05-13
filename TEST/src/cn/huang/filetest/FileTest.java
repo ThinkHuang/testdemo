@@ -1,4 +1,4 @@
-package cn.huang.filetest;
+ï»¿package cn.huang.filetest;
 
 import java.io.File;
 import java.io.FileReader;
@@ -32,8 +32,8 @@ public class FileTest {
 
 }
 class FileManager{
-	String[] words = null;//ÓÃÓÚ´æ´¢·Ö¸îÎÄ±¾ºóµÄµ¥´Ê£¬
-	int pos = 0;//Êı×éÏÂ±ê±êÊ¾
+	String[] words = null;//ç”¨äºå­˜å‚¨åˆ†å‰²æ–‡æœ¬åçš„å•è¯ï¼Œ
+	int pos = 0;//æ•°ç»„ä¸‹æ ‡æ ‡ç¤º
 	
 	public FileManager(String filename,char[] seperator) throws IOException{
 		File f = new File(filename);

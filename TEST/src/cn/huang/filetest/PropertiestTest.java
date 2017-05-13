@@ -1,4 +1,4 @@
-package cn.huang.filetest;
+ï»¿package cn.huang.filetest;
 
 import java.io.BufferedOutputStream;
 import java.io.FileOutputStream;
@@ -7,34 +7,34 @@ import java.io.OutputStream;
 import java.util.Properties;
 
 /**
- * ¸ÃÀàÊÇÓÃÀ´²âÊÔPropertiesÕâ¸öÀàµÄÊ¹ÓÃµÄ
+ * è¯¥ç±»æ˜¯ç”¨æ¥æµ‹è¯•Propertiesè¿™ä¸ªç±»çš„ä½¿ç”¨çš„
  * @author huangyejun
  *
  */
 public class PropertiestTest {
 	public static void main(String[] args) throws IOException {
-		//¶ÁÈ¡ÏµÍ³ÎÄ¼şµÄĞÅÏ¢
+		//è¯»å–ç³»ç»Ÿæ–‡ä»¶çš„ä¿¡æ¯
 //		Properties pro = System.getProperties();
 //		pro.list(System.out);
-		//¶ÁÈ¡test.propertiesÎÄ¼şÖĞµÄÄÚÈİ£¬
+		//è¯»å–test.propertiesæ–‡ä»¶ä¸­çš„å†…å®¹ï¼Œ
 		
 		/*
-		 * 1¡¢µÃµ½Ò»¸öÊäÈëÁ÷£¬²¢½«ĞèÒªµÄproperties½øĞĞ¡°Á÷»¯¡±¡£
-		 * ËµÃ÷£¬ÔÚµÃµ½Ò»¸öÊäÈëÁ÷¶ÔÏóµÄ¹ı³ÌÖĞ£¬»¹¿ÉÒÔÊ¹ÓÃÁíÍâÒ»ÖÖ·½Ê½¡£
-		 * InputStream in = new BufferedInputStream(new FileInputStream(¡±ÎÄ¼şÃû¡°));
-		 * ×¢Òâ£ºÕâÀïµÄÎÄ¼şµÄÎ»ÖÃºÜÖØÒª£¬Ê¹ÓÃÕâÖÖ·½Ê½µÄÊ±ºò£¬ÎÄ¼şµÄÂ·¾¶ÊÇÏà¶ÔÓÚÏîÄ¿Â·¾¶£¬
+		 * 1ã€å¾—åˆ°ä¸€ä¸ªè¾“å…¥æµï¼Œå¹¶å°†éœ€è¦çš„propertiesè¿›è¡Œâ€œæµåŒ–â€ã€‚
+		 * è¯´æ˜ï¼Œåœ¨å¾—åˆ°ä¸€ä¸ªè¾“å…¥æµå¯¹è±¡çš„è¿‡ç¨‹ä¸­ï¼Œè¿˜å¯ä»¥ä½¿ç”¨å¦å¤–ä¸€ç§æ–¹å¼ã€‚
+		 * InputStream in = new BufferedInputStream(new FileInputStream(â€æ–‡ä»¶åâ€œ));
+		 * æ³¨æ„ï¼šè¿™é‡Œçš„æ–‡ä»¶çš„ä½ç½®å¾ˆé‡è¦ï¼Œä½¿ç”¨è¿™ç§æ–¹å¼çš„æ—¶å€™ï¼Œæ–‡ä»¶çš„è·¯å¾„æ˜¯ç›¸å¯¹äºé¡¹ç›®è·¯å¾„ï¼Œ
 		 */
 		//InputStream in = PropertiestTest.class.getResourceAsStream("test.properties");
-		//²ÉÓÃgetResourceAsStreamÕâÊ±µÄÎÄ¼şÊ±Ïà¶ÔÓÚÀàÂ·¾¶µÄ¡£
+		//é‡‡ç”¨getResourceAsStreamè¿™æ—¶çš„æ–‡ä»¶æ—¶ç›¸å¯¹äºç±»è·¯å¾„çš„ã€‚
 		//InputStream in = new BufferedInputStream(new FileInputStream("src/cn/huang/filetest/test.properties"));
 		/*
-		 * 2.´´½¨Ò»¸öProperties¶ÔÏó£¬²¢ÀûÓÃload·½·¨½«Á÷ÖĞµÄ¼üÖµ¶Ôµ½ÊôĞÔÁĞ±íÖĞ
+		 * 2.åˆ›å»ºä¸€ä¸ªPropertieså¯¹è±¡ï¼Œå¹¶åˆ©ç”¨loadæ–¹æ³•å°†æµä¸­çš„é”®å€¼å¯¹åˆ°å±æ€§åˆ—è¡¨ä¸­
 		 */
 //		Properties pro = new Properties();
 //		pro.load(in);
 		
 		/*
-		 * ÀûÓÃPropertiesÖĞµÄ¸÷ÖÖgetXXX()À´µÃµ½test.propertiesÅäÖÃÎÄ¼şÖĞµÄ¼üÖµ¶Ô¡£
+		 * åˆ©ç”¨Propertiesä¸­çš„å„ç§getXXX()æ¥å¾—åˆ°test.propertiesé…ç½®æ–‡ä»¶ä¸­çš„é”®å€¼å¯¹ã€‚
 		 */
 //		String name = pro.getProperty("name");
 //		String wight = pro.getProperty("Wight");
@@ -43,11 +43,11 @@ public class PropertiestTest {
 //		System.out.println("name:" + name + " wight:" + wight + " height:" + "height");
 		
 		/*
-		 * ÕâÀïÎÒÃÇ¿ÉÒÔ½«ÅäÖÃÎÄ¼şÖĞµÄËùÓĞ¼üÖµ¶Ô·Åµ½Ò»¸öEnumerationÖĞ£¬¸Ã·½·¨ÎªpropertyNames(),¸Ã·½·¨½«·µ»ØÊôĞÔÁĞ±íÖĞµÄËùÓĞÃ¶¾Ù
+		 * è¿™é‡Œæˆ‘ä»¬å¯ä»¥å°†é…ç½®æ–‡ä»¶ä¸­çš„æ‰€æœ‰é”®å€¼å¯¹æ”¾åˆ°ä¸€ä¸ªEnumerationä¸­ï¼Œè¯¥æ–¹æ³•ä¸ºpropertyNames(),è¯¥æ–¹æ³•å°†è¿”å›å±æ€§åˆ—è¡¨ä¸­çš„æ‰€æœ‰æšä¸¾
 		 */
 //		Enumeration en = pro.propertyNames();
 		
-		//Ê¹ÓÃÃ¶¾ÙµÄµü´úÆ÷½øĞĞµü´ú²éÑ¯
+		//ä½¿ç”¨æšä¸¾çš„è¿­ä»£å™¨è¿›è¡Œè¿­ä»£æŸ¥è¯¢
 //		while(en.hasMoreElements()){
 //			String strKey = (String) en.nextElement();
 //			String strValue = pro.getProperty(strKey);
@@ -55,13 +55,13 @@ public class PropertiestTest {
 //		}
 		
 		/*
-		 * ½ÓÏÂÀ´½«Íùtest.propertiesÅäÖÃÎÄ¼şÖĞ¼ÓÈëÊı¾İ
-		 * 1¡¢½«´´½¨Êä³öÁ÷¶ÔÏó£¬²¢ÇÒ¹ØÁªµ½ÎÄ¼ş
+		 * æ¥ä¸‹æ¥å°†å¾€test.propertiesé…ç½®æ–‡ä»¶ä¸­åŠ å…¥æ•°æ®
+		 * 1ã€å°†åˆ›å»ºè¾“å‡ºæµå¯¹è±¡ï¼Œå¹¶ä¸”å…³è”åˆ°æ–‡ä»¶
 		 */
 		OutputStream out = new BufferedOutputStream(new FileOutputStream("src/cn/huang/filetest/test.properties"));
 		
 		/*
-		 * 2.´´½¨Ò»¸öProperties¶ÔÏó£¬²¢ÀûÓÃload·½·¨½«Á÷ÖĞµÄ¼üÖµ¶Ô¶Áµ½ÊôĞÔÁĞ±íÖĞ
+		 * 2.åˆ›å»ºä¸€ä¸ªPropertieså¯¹è±¡ï¼Œå¹¶åˆ©ç”¨loadæ–¹æ³•å°†æµä¸­çš„é”®å€¼å¯¹è¯»åˆ°å±æ€§åˆ—è¡¨ä¸­
 		 */
 		Properties pro = new Properties();
 		
