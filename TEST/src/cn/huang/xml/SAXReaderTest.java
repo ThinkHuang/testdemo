@@ -1,4 +1,4 @@
-package cn.huang.xml;
+﻿package cn.huang.xml;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -15,20 +15,20 @@ import org.dom4j.tree.AbstractAttribute;
 
 
 /**
- * �ܽ᣺����SAXReader��ȡ����ȡ�Ĳ���˳���������ģ�
- * 1�����������ļ��������ļ��ֽ�������һ���ļ���-->���л��׳�һЩ�쳣��
- * 2������SAXReader��ȡ�ļ���/�ļ��ֽ�����ȡ�ļ��е������ӽڵ�-->����������ӽڵ�ָ���Ǻ�Ԫ����ӽ����ӽڵ㣬
- * 		�������е�row�������ж��row�ӽڵ㣬���ﷵ�ص���һ��ElementԪ�ض��󡣶��row����List�б��С�
- * 3��ͨ�������ӽڵ��ȡÿ��Ԫ��-->������Ҫ�õ�iterator���������е�����ȡ�����ӽڵ��µ�Ԫ�ء��磺queryDTO.enterpriseId
- * 		���������ֵҲ�Ƕ��������ͬ����װ��һ��List�����У�Ȼ��Ԫ��ת��Ϊ�������ԣ��������Եõ�������������ֵ��
- * 4��Ҳ����ֱ��ͨ�������ӽڵ��attributeValue�����õ���Ӧ���Ե�����ֵ��
+ * 总结：利用SAXReader读取器读取的步骤顺序是这样的：
+ * 1、首先利用文件流或者文件字节流关联一个文件。-->其中会抛出一些异常，
+ * 2、利用SAXReader读取文件流/文件字节流读取文件中的最下子节点-->这里的最下子节点指的是和元素最接近的子节点，
+ * 		如下例中的row，可能有多个row子节点，这里返回的是一个Element元素对象。多个row存在List列表中。
+ * 3、通过最下子节点获取每个元素-->这里面要用到iterator迭代器进行迭代读取最下子节点下的元素。如：queryDTO.enterpriseId
+ * 		这里的属性值也是多个，所以同样是装在一个List容器中，然后将元素转化为抽象属性，这样可以得到属性名和属性值。
+ * 4、也可以直接通过最下子节点的attributeValue方法得到对应属性的属性值。
  * 
- * ע�⣺��������һ��������ĵط��ˣ����˵�ҵ�data�����ж���ӽڵ㣬row stuInfo sysInfo...etc��ô������ÿ�������ӽڵ㶼��Ҫ����һ��
- * List������װ�ظ��������Ԫ���ˣ���û��ʲô����취�أ�
- * ��ʱû��ʲô�취�ܹ�������������Ҳ��SAXReader�Ĳ���֮������Ϊ��SAXReader�����Ա������Ƕ�ȡ�����ӽڵ���ؽ��ڴ��У�Ȼ���ȡ�����Ԫ�أ���������������
- * ���������ǿ��������ӽڵ�����ӽڵ��ˣ���ôSAXReader�������������ģ���ȡ����һ�������ӽڵ�Ͳ���֪����һ���ӽڵ�������ˡ�
+ * 注意：这样就有一个不方便的地方了，如果说我的data下面有多个子节点，row stuInfo sysInfo...etc那么我岂不是每个最下子节点都需要创建一个
+ * List集合来装载各自下面的元素了？有没有什么解决办法呢？
+ * 暂时没有什么办法能够做到，我想这也是SAXReader的不便之处，因为，SAXReader的特性本身就是读取最下子节点加载进内存中，然后读取里面的元素，而针对于我上面的
+ * 描述，这是跨了两个子节点或多个子节点了，那么SAXReader本身是做不到的，读取了这一个最下子节点就不能知道上一个子节点的数据了。
  * 
- * ˵���������ܹ������ľ�����data�ڵ��¿����ж��row�ӽڵ㣬���ң�ÿ��row�ӽڵ��е�Ԫ�����ݿ��Բ�һ�¡�
+ * 说明：现在能够做到的就是在data节点下可以有多个row子节点，并且，每个row子节点中的元素内容可以不一致。
  * @author huangyejun
  *
  */
@@ -45,20 +45,20 @@ public class SAXReaderTest{
 		List rowList = null;
 		Node node = null;
 		try {
-			//�����ĵ���Ӧʵ��
+			//生成文档对应实体
 			Document doc = saxReader.read(fis);
-			//��ȡָ��·���µ�Ԫ���б�������ָ��ȡ���е�data�µ�rowԪ��
+			//获取指定路径下的元素列表，这里指获取所有的data下的row元素
 			rowList = doc.selectNodes("//data/row");
 			} catch (DocumentException e) {
 			e.printStackTrace();
 		}
 			for(Iterator iter = rowList.iterator();iter.hasNext();){
-				//��þ����rowԪ��
+				//获得具体的row元素
 				Element element = (Element) iter.next();
-				//���rowԪ�ص����������б�
+				//获得row元素的所有属性列表
 				List elementList = element.attributes();
 				for(Iterator iter1 = elementList.iterator();iter1.hasNext();){
-					//��ÿ������ת��Ϊһ���������ԣ�Ȼ���ȡ�����ֺ�ֵ
+					//将每个属性转化为一个抽象属性，然后获取其名字和值
 					AbstractAttribute aa = (AbstractAttribute) iter1.next();
 					System.out.println("Name:" + aa.getName() + ";Value:" +aa.getValue());
 				}
