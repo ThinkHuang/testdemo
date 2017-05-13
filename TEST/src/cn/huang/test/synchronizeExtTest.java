@@ -1,15 +1,15 @@
-package cn.huang.test;
+ï»¿package cn.huang.test;
 
 
 /**
- * ¸Ä³ÌĞòµÄÖĞThread1ºÍThread2µÄÖ´ĞĞË³ĞòÊÇËæ»úµÄ¡£¿ÉÒÔ²Î¿¼ThreadTest£¬¸ÃÀàÖĞ¶ÔÏß³ÌµÄÖ´ĞĞË³Ğò×öÁË¿ØÖÆ¡£
+ * æ”¹ç¨‹åºçš„ä¸­Thread1å’ŒThread2çš„æ‰§è¡Œé¡ºåºæ˜¯éšæœºçš„ã€‚å¯ä»¥å‚è€ƒThreadTestï¼Œè¯¥ç±»ä¸­å¯¹çº¿ç¨‹çš„æ‰§è¡Œé¡ºåºåšäº†æ§åˆ¶ã€‚
  * @author huangyejun
  *
  */
 
 public class synchronizeExtTest {
 	public static void main(String[] args) {
-		//ÕâÑù²»ÄÜ×öË³Ğò¿ØÖÆ£¬ÒòÎªÕâÀïµÄ¿ØÖÆÃ»ÓĞÓÃ£¬Ö»ÓĞÔÚÈÎÎñÖĞ×öÂß¼­¿ØÖÆ£¬¶ø²»ÊÇ¶ÔÏß³ÌË³Ğò×ö×ö¿ØÖÆ
+		//è¿™æ ·ä¸èƒ½åšé¡ºåºæ§åˆ¶ï¼Œå› ä¸ºè¿™é‡Œçš„æ§åˆ¶æ²¡æœ‰ç”¨ï¼Œåªæœ‰åœ¨ä»»åŠ¡ä¸­åšé€»è¾‘æ§åˆ¶ï¼Œè€Œä¸æ˜¯å¯¹çº¿ç¨‹é¡ºåºåšåšæ§åˆ¶
 		for(int x = 0; x < 50 ; x++){
 			new Thread(new Thread1()).start();
 			new Thread(new Thread2()).start();

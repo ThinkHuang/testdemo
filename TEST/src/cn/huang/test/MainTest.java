@@ -1,4 +1,4 @@
-package cn.huang.test;
+锘縫ackage cn.huang.test;
 
 import java.beans.BeanInfo;
 import java.beans.IntrospectionException;
@@ -36,9 +36,9 @@ public class MainTest {
 
 	private static void test1() throws IntrospectionException {
 		// TODO Auto-generated method stub
-		//通过Class对象获取BeanInfo对象
+		//閫氳繃Class瀵硅薄鑾峰彇BeanInfo瀵硅薄
 		BeanInfo info = Introspector.getBeanInfo(Person.class);
-		//通过BeanInfo获取所有属性描述符对象
+		//閫氳繃BeanInfo鑾峰彇鎵�鏈夊睘鎬ф弿杩扮瀵硅薄
 		PropertyDescriptor[] pd = info.getPropertyDescriptors();
 		String username = null;
 		Method method;

@@ -1,4 +1,4 @@
-package cn.huang.test;
+ï»¿package cn.huang.test;
 
 public class StringTest {
 
@@ -20,7 +20,7 @@ public class StringTest {
 		System.out.println(new String("abc").equals(new String("abc")));
 		System.out.println(new StringBuilder("abc").equals(new StringBuilder("abc")));
 		/*
-		 * ËµÃ÷£¬StringÀàÊµÏÖÁËObjectµÄequals·½·¨£¬¶øStringBuilderÃ»ÓÐÊµÏÖ¸Ã·½·¨¡£
+		 * è¯´æ˜Žï¼ŒStringç±»å®žçŽ°äº†Objectçš„equalsæ–¹æ³•ï¼Œè€ŒStringBuilderæ²¡æœ‰å®žçŽ°è¯¥æ–¹æ³•ã€‚
 		 */
 	}
 
@@ -31,9 +31,9 @@ public class StringTest {
 		s = s + "world";
 		System.out.println(s.hashCode());
 		/*
-		 * Õâ¸öÀý×ÓËµÃ÷£¬StringÀàÊÇimmutableµÄ£¬ÕâÑù£¬µ±¸Ä±äsµÄÖµµÄÊ±ºò£¬ÆäÊµÊÇÖØÐÂÐÂ½¨ÁËÒ»¸öString¶ÔÏó£¬
-		 * È»ºóÈÃsÖ¸ÏòÕâ¸öÐÂµÄ¶ÔÏó£¬JVMÔÙÏú»ÙÕâ¸ö"¾É"µÄ¶ÔÏó¡£
-		 * ËùÒÔ£¬ÒÔºóÔÚÕë¶Ô¿É±ä³¤¶ÈµÄ×Ö·û´®Ê±£¬Ò»°ãÓÃStringBuilder
+		 * è¿™ä¸ªä¾‹å­è¯´æ˜Žï¼ŒStringç±»æ˜¯immutableçš„ï¼Œè¿™æ ·ï¼Œå½“æ”¹å˜sçš„å€¼çš„æ—¶å€™ï¼Œå…¶å®žæ˜¯é‡æ–°æ–°å»ºäº†ä¸€ä¸ªStringå¯¹è±¡ï¼Œ
+		 * ç„¶åŽè®©sæŒ‡å‘è¿™ä¸ªæ–°çš„å¯¹è±¡ï¼ŒJVMå†é”€æ¯è¿™ä¸ª"æ—§"çš„å¯¹è±¡ã€‚
+		 * æ‰€ä»¥ï¼Œä»¥åŽåœ¨é’ˆå¯¹å¯å˜é•¿åº¦çš„å­—ç¬¦ä¸²æ—¶ï¼Œä¸€èˆ¬ç”¨StringBuilder
 		 */
 	}
 
@@ -52,7 +52,7 @@ public class StringTest {
 	  System.out.println( s2==s1.intern() );
 	 }
 
-	//result£º
+	//resultï¼š
 
 	//true
 	//kvill kvill
@@ -69,28 +69,28 @@ public class StringTest {
 	  System.out.println( s2==s1.intern() );
 	 }
 
-	//result£º
+	//resultï¼š
 
 	//false
 	//kvill kvill
 	//true
 	 /**
-	  * ËµÃ÷£º´ÓÉÏÃæµÄ½á¹û¿ÉÒÔ¿´³ö£¬Õë¶ÔÓï¾ästring str = "abc"¶øÑÔ£¬ËüÔÚ±àÒëÆÚµÄÊ±ºò¾Í»á¼ì²é³£Á¿³Ø£¬ÊÇ·ñÓÐ¡°abc¡±Õâ¸ö×Ö·û´®ÊÇ·ñ´æÔÚ£¬
-	  * ²»´æÔÚ¾ÍÌí¼Ó½øÈ¥£¬´æÔÚ¾Í²»´´½¨¶ÔÏóµÄÒýÓÃ£¨ÒýÓÃ1£©£¬ÕâÖÖ·½Ê½´´½¨µÄ×Ö·û´®¶ÔÏóÔÚµ×²ã¿ÉÄÜÒ²ÊÇÒÔÀà¡°String¡±µÄ·½Ê½À´´´½¨¶ÔÏó£»
-	  * Õë¶ÔÓÚÓï¾äString str = new String("abc")À´Ëµ£¬ÔÚ±àÒëÆÚÊÇ²»»á´´½¨¶ÔÏóµÄ£¬¶øÊÇµ½ÁËÔËÐÐÆÚ£¬µ±Ö´ÐÐÁËs2 = s1.intern()
-	  * ·½·¨ºó£¬s1!=s2ËµÃ÷£¬new String()Õâ¸ö¶ÔÏó´æ´¢µÄÆäÊµ²»ÊÇ¡°abc¡±Õâ¸ö³£Á¿£¬¶øÊÇ¡°abc¡±Õâ¸ö³£Á¿µÄÒýÓÃ£¨ÒýÓÃ2£©
+	  * è¯´æ˜Žï¼šä»Žä¸Šé¢çš„ç»“æžœå¯ä»¥çœ‹å‡ºï¼Œé’ˆå¯¹è¯­å¥string str = "abc"è€Œè¨€ï¼Œå®ƒåœ¨ç¼–è¯‘æœŸçš„æ—¶å€™å°±ä¼šæ£€æŸ¥å¸¸é‡æ± ï¼Œæ˜¯å¦æœ‰â€œabcâ€è¿™ä¸ªå­—ç¬¦ä¸²æ˜¯å¦å­˜åœ¨ï¼Œ
+	  * ä¸å­˜åœ¨å°±æ·»åŠ è¿›åŽ»ï¼Œå­˜åœ¨å°±ä¸åˆ›å»ºå¯¹è±¡çš„å¼•ç”¨ï¼ˆå¼•ç”¨1ï¼‰ï¼Œè¿™ç§æ–¹å¼åˆ›å»ºçš„å­—ç¬¦ä¸²å¯¹è±¡åœ¨åº•å±‚å¯èƒ½ä¹Ÿæ˜¯ä»¥ç±»â€œStringâ€çš„æ–¹å¼æ¥åˆ›å»ºå¯¹è±¡ï¼›
+	  * é’ˆå¯¹äºŽè¯­å¥String str = new String("abc")æ¥è¯´ï¼Œåœ¨ç¼–è¯‘æœŸæ˜¯ä¸ä¼šåˆ›å»ºå¯¹è±¡çš„ï¼Œè€Œæ˜¯åˆ°äº†è¿è¡ŒæœŸï¼Œå½“æ‰§è¡Œäº†s2 = s1.intern()
+	  * æ–¹æ³•åŽï¼Œs1!=s2è¯´æ˜Žï¼Œnew String()è¿™ä¸ªå¯¹è±¡å­˜å‚¨çš„å…¶å®žä¸æ˜¯â€œabcâ€è¿™ä¸ªå¸¸é‡ï¼Œè€Œæ˜¯â€œabcâ€è¿™ä¸ªå¸¸é‡çš„å¼•ç”¨ï¼ˆå¼•ç”¨2ï¼‰
 	  * 
 	  * 
-	  * intern·½·¨½«·µ»Ø³£Á¿×Ö·û´®µÄÒýÓÃ£¨ÒýÓÃ1£©£¬¿ÉÒÔ¿´³öÕâÀïµÄ¡°³£Á¿¡±×Ö·û´®ÒýÓÃºÍstringµÄÒýÓÃ£¨ÒýÓÃ2£©ÊÇ²»Í¬µÄ
+	  * internæ–¹æ³•å°†è¿”å›žå¸¸é‡å­—ç¬¦ä¸²çš„å¼•ç”¨ï¼ˆå¼•ç”¨1ï¼‰ï¼Œå¯ä»¥çœ‹å‡ºè¿™é‡Œçš„â€œå¸¸é‡â€å­—ç¬¦ä¸²å¼•ç”¨å’Œstringçš„å¼•ç”¨ï¼ˆå¼•ç”¨2ï¼‰æ˜¯ä¸åŒçš„
 	  * 
 	  * 
-	  * ²ÂÏë£ºÎÒÏëÎªÊ²Ã´»á³öÏÖÉÏÃæµÄÇé¿ö£¬ÄÇÊÇÒòÎªnew stringÖÐ´æ´¢µÄ¿ÉÄÜÊÇ¡°abc¡±Õâ¸ö³£Á¿µÄ¡°ÕæÉí¡±,µ½ÁËÔËÐÐÆÚµÄÄ³¸öÊ±ÆÚ£¬JVM¾Í»á½«
-	  * Õâ¸öÕæÉí¡°¸´ÖÆ¡±£¨¿ÉÄÜ²»ÊÇ¸´ÖÆ£©µ½³£Á¿³ØÖÐ£¬È»ºóÔÙÏú»ÙÕâ¸ö¡°ÕæÉí¡±£¬ÕâÊ±ºò£¬ËûÃÇÖ¸ÏòµÄ¾ÍÊÇÒ»¸ö¶ÔÏóÒýÓÃÁË¡£
+	  * çŒœæƒ³ï¼šæˆ‘æƒ³ä¸ºä»€ä¹ˆä¼šå‡ºçŽ°ä¸Šé¢çš„æƒ…å†µï¼Œé‚£æ˜¯å› ä¸ºnew stringä¸­å­˜å‚¨çš„å¯èƒ½æ˜¯â€œabcâ€è¿™ä¸ªå¸¸é‡çš„â€œçœŸèº«â€,åˆ°äº†è¿è¡ŒæœŸçš„æŸä¸ªæ—¶æœŸï¼ŒJVMå°±ä¼šå°†
+	  * è¿™ä¸ªçœŸèº«â€œå¤åˆ¶â€ï¼ˆå¯èƒ½ä¸æ˜¯å¤åˆ¶ï¼‰åˆ°å¸¸é‡æ± ä¸­ï¼Œç„¶åŽå†é”€æ¯è¿™ä¸ªâ€œçœŸèº«â€ï¼Œè¿™æ—¶å€™ï¼Œä»–ä»¬æŒ‡å‘çš„å°±æ˜¯ä¸€ä¸ªå¯¹è±¡å¼•ç”¨äº†ã€‚
 	  */
 
 	 
 
-	//²»¹ý×Ü¾õµÃÏëµ½ÁË£¬È´»¹²îµãÊ²Ã´£¬Ï£Íû´óÉñÃÇ¿´¿´£¬¸øÎÒÒ»Ð©ÐÂµÄÌáÊ¾£¡
+	//ä¸è¿‡æ€»è§‰å¾—æƒ³åˆ°äº†ï¼Œå´è¿˜å·®ç‚¹ä»€ä¹ˆï¼Œå¸Œæœ›å¤§ç¥žä»¬çœ‹çœ‹ï¼Œç»™æˆ‘ä¸€äº›æ–°çš„æç¤ºï¼
 
 
 }
