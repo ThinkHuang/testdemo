@@ -1,4 +1,4 @@
-package cn.huang.other;
+ï»¿package cn.huang.other;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -16,7 +16,7 @@ public class AnnotationTest {
 }
 
 /**
- * ÓÉÓÚ±àÒëÆ÷»á¶Ô±àÒëºóµÄClassÎÄ¼ş½øĞĞÓÅ»¯£¬½øĞĞ·´±àÒëºó¿ÉÒÔ¿´µ½Êµ¼ÊÉÏ£¬ËùÓĞµÄ·ºĞÍ¶¼±»Êµ¼ÊÀàĞÍ´úÌæÁË¡£
+ * ç”±äºç¼–è¯‘å™¨ä¼šå¯¹ç¼–è¯‘åçš„Classæ–‡ä»¶è¿›è¡Œä¼˜åŒ–ï¼Œè¿›è¡Œåç¼–è¯‘åå¯ä»¥çœ‹åˆ°å®é™…ä¸Šï¼Œæ‰€æœ‰çš„æ³›å‹éƒ½è¢«å®é™…ç±»å‹ä»£æ›¿äº†ã€‚
  * @author huangyejun
  *
  * @param <T>
@@ -24,12 +24,12 @@ public class AnnotationTest {
 class A<T>{
 	public void fun(){
 		ParameterizedType pType = (ParameterizedType) this.getClass().getGenericSuperclass();
-		Type[] types = pType.getActualTypeArguments();//µÃµ½´«µİ¸ø¸¸ÀàµÄ¾ßÌåÀàĞÍ¡£ÖÁÓÚÕâÀïÎªÊ²Ã´ÊÇÊı×éÀàĞÍ£¬ÊÇÒòÎª¿ÉÄÜÓĞ¶à¸ö·ºĞÍ±äÁ¿
+		Type[] types = pType.getActualTypeArguments();//å¾—åˆ°ä¼ é€’ç»™çˆ¶ç±»çš„å…·ä½“ç±»å‹ã€‚è‡³äºè¿™é‡Œä¸ºä»€ä¹ˆæ˜¯æ•°ç»„ç±»å‹ï¼Œæ˜¯å› ä¸ºå¯èƒ½æœ‰å¤šä¸ªæ³›å‹å˜é‡
 		System.out.println("A...");
 	}
 }
 
-class B extends A<String>{//ÔÚ¼Ì³Ğ·ºĞÍÀàÊ±£¬±ØĞëÒª¸øÆäÖ±½Ó¸¸Àà´«µİÈ·ÈÏµÄÀàĞÍ¡£
+class B extends A<String>{//åœ¨ç»§æ‰¿æ³›å‹ç±»æ—¶ï¼Œå¿…é¡»è¦ç»™å…¶ç›´æ¥çˆ¶ç±»ä¼ é€’ç¡®è®¤çš„ç±»å‹ã€‚
 	
 }
 
@@ -40,7 +40,7 @@ class C extends A<Integer>{
 
 @Retention(RetentionPolicy.RUNTIME)
 @interface MyAnn01{
-	//ÒÔÏÂÊÇ×¢½âµÄ¹Ì¶¨¸ñÊ½£¬²»ĞèÒªĞ´³ÉÕâÑù£¬ËäÈ»ÕâÀïµÄnameÊÇÊôĞÔ£¬µ«ÊÇ£¬Ò²±ØĞëĞ´³ÉÕâÑù
+	//ä»¥ä¸‹æ˜¯æ³¨è§£çš„å›ºå®šæ ¼å¼ï¼Œä¸éœ€è¦å†™æˆè¿™æ ·ï¼Œè™½ç„¶è¿™é‡Œçš„nameæ˜¯å±æ€§ï¼Œä½†æ˜¯ï¼Œä¹Ÿå¿…é¡»å†™æˆè¿™æ ·
 	public String name();
 	public int age();
 	public String sex();
