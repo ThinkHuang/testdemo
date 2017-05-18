@@ -1,4 +1,4 @@
-package cn.huang.json;
+ï»¿package cn.huang.json;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -6,7 +6,7 @@ import net.sf.json.JSONObject;
 public class Demo1 {
 	public static void main(String[] args) {
 		/*
-		 * ½«JSONArrayµ±×öListÀ´Ê¹ÓÃ
+		 * å°†JSONArrayå½“åšListæ¥ä½¿ç”¨
 		 */
 		JSONArray jsonArr = new JSONArray();
 		jsonArr.add("liSi");
@@ -15,7 +15,7 @@ public class Demo1 {
 		System.out.println(jsonArr);
 		
 		/*
-		 * ½«JSONObjectµ±×öMapÀ´Ê¹ÓÃ£¬ÆäÖĞÎÒÃÇºÜ³£ÓÃµÄÒ»¸ö·½·¨¾ÍÊÇfromObject(Map)£¬½²Ò»¸öMap´«½øÈ¥£¬ÎÒÃÇ½«µÃµ½Ò»¸öJSON´®
+		 * å°†JSONObjectå½“åšMapæ¥ä½¿ç”¨ï¼Œå…¶ä¸­æˆ‘ä»¬å¾ˆå¸¸ç”¨çš„ä¸€ä¸ªæ–¹æ³•å°±æ˜¯fromObject(Map)ï¼Œè®²ä¸€ä¸ªMapä¼ è¿›å»ï¼Œæˆ‘ä»¬å°†å¾—åˆ°ä¸€ä¸ªJSONä¸²
 		 */
 		JSONObject jsonObj = new JSONObject();
 		jsonObj.put("name", "zhangSan");
