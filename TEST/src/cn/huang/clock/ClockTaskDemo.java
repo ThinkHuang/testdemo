@@ -1,4 +1,4 @@
-package cn.huang.clock;
+﻿package cn.huang.clock;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -60,9 +60,9 @@ public class ClockTaskDemo {
 	
 	/**
 	 * 利用Timer实现定时
-	 * 缺点，不利于控制，针对广发小程序不太适合，如果当其中一个客户的邮件附件处理过于复杂，耗时过多，那么将会打乱定时任务的执行--来自于Timer API
+	 * 缺点，不利于控制,针对广发小程序不太适合,如果当其中一个客户的邮件附件处理过于复杂,耗时过多,那么将会打乱定时任务的执行--来自于Timer API
 	 * 这是一个单线程任务处理器
-	 * 相比较于第一种，添加了更多的灵活性，可以设置任务执行的间隔
+	 * 相比较于第一种,添加了更多的灵活性,可以设置任务执行的间隔
 	 */
 	@Test
 	public void task2(){
