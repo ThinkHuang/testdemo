@@ -4,8 +4,11 @@ import java.io.File;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 import org.junit.Test;
 
@@ -58,4 +61,31 @@ public class DateDemo {
 		
 		
 	}
+	
+	private Date getLastBizDate(Date date) throws ParseException{
+		/**
+		 * 从假期表中取小于发送日的前15条记录
+		 * 不想重复查询数据库，又想通过递归来执行校验
+		 */
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+		String sql = "select * from (select fdate from HSV_CSHOLIDAY where fdate < ?  order by fdate desc) T where rownum < 15";
+//		List<Map<String,Object>> list = this.findForJdbc(sql, date);//该语句的作用是查出假期列表
+		List<Map<String,Object>> list = new ArrayList<Map<String,Object>>();
+		Calendar cal = Calendar.getInstance();
+		if(list.size() > 0){
+			for (Map<String,Object> map : list) {
+				Date fdate = (Date) map.get("fdate");
+				if(fdate.compareTo(date) != 0){
+					break;
+				}else{
+					cal.setTime(date);
+					cal.set(Calendar.DATE, cal.get(Calendar.DATE) - 1);
+					date = df.parse(cal.getTime().toString());
+					continue;
+				}
+			}
+		}
+		return date;
+	}
+	
 }	
