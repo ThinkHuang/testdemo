@@ -5,6 +5,8 @@ import java.io.FileOutputStream;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.junit.Test;
+
 import de.innosystec.unrar.Archive;
 import de.innosystec.unrar.rarfile.FileHeader;
 
@@ -96,4 +98,32 @@ public class RarCompression {
 	        return false;  
 	    }  
 
+	    /**
+	     * 得到压缩文件中的所有文件的文件名
+	     */
+	    @Test
+	    public void getAllFileNames(){
+	    	 File sourceRar = new File("c:\\test\\webservices-api.rar");
+			  Archive archive = null;  
+			  int count = 0;
+		        try {  
+		            archive = new Archive(sourceRar);  
+		            FileHeader fh = archive.nextFileHeader();  
+		            while (fh != null) {  
+		                String compressFileName = "";
+		                if(existZH(fh.getFileNameW())){//改名称中如果包含了中文，则使用该名称
+		                	compressFileName = fh.getFileNameW().trim();
+		                }else{
+		                	compressFileName = fh.getFileNameString().trim();  
+		                }
+		                if(compressFileName.endsWith("html") || compressFileName.endsWith("excel") || compressFileName.endsWith("txt"))
+		                	count++;
+		                System.out.println(compressFileName);
+		                fh = archive.nextFileHeader();
+		            }
+		            System.out.println();
+		        }catch(Exception e){
+		        	//TODO: Ignore
+		        }
+	    }
 }

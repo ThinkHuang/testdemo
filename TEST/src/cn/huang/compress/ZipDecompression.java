@@ -7,8 +7,14 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.Enumeration;
 import java.util.zip.ZipEntry;
+import java.util.zip.ZipFile;
 import java.util.zip.ZipInputStream;
+
+import org.junit.Test;
 
 /**
  * java实现文件的解压
@@ -55,4 +61,29 @@ public class ZipDecompression {
 	        long endTime=System.currentTimeMillis();  
 	        System.out.println("耗费时间： "+(endTime-startTime)+" ms");  
 	    }  
+	 
+	/**
+	 * 获取压缩文件的所有文件名称
+	 * @throws FileNotFoundException 
+	 */
+	 @Test
+	 public void getAllFileNames() throws FileNotFoundException{
+		 ZipInputStream Zin=new ZipInputStream(new FileInputStream("C:\\test\\plsqldeveloper_sn.zip"));
+		 String Parent="D:\\test\\decompression"; //输出路径（文件夹目录）  
+         File Fout=null;  
+         ZipEntry entry;  
+         try {  
+             while((entry = Zin.getNextEntry())!=null){ 
+             	//if(entry.isDirectory())continue;  
+             	
+                 Fout=new File(Parent,entry.getName());
+                 String fileName = Fout.getName().trim().toLowerCase();
+                 System.out.println("filename:" + entry.getName());
+             }
+         }catch(Exception e){
+        	 //TODO: Ignore
+         }
+	 }
+	 
+	
 }

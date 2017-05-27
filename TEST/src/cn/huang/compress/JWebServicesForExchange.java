@@ -4,6 +4,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
 
+import org.junit.Test;
+
 import com.independentsoft.exchange.Attachment;
 import com.independentsoft.exchange.AttachmentInfo;
 import com.independentsoft.exchange.FileAttachment;
@@ -22,7 +24,8 @@ import com.independentsoft.exchange.StandardFolder;
 
 public class JWebServicesForExchange {
 
-	public static void main(String[] args) {
+	@Test
+	public void getAttachMessages() {
 		  try
 	        {
 	            Service service = new Service("https://192.168.72.54/ews/Exchange.asmx", "huangyejun@szscxx.cn", "Szscxx_123456");
@@ -79,6 +82,46 @@ public class JWebServicesForExchange {
 	        }
 	        catch (IOException e)
 	        {
+	            e.printStackTrace();
+	        }
+	}
+	
+	@Test
+	public void getUnreadMessages(){
+		 try
+	        {
+	            Service service = new Service("https://192.168.72.54/ews/Exchange.asmx", "huangyejun@szscxx.cn", "Szscxx_123456");
+
+	            IsEqualTo restriction = new IsEqualTo(MessagePropertyPath.IS_READ, false);//是否已读没有用，该操作只针对物理操作，不能针对软件操作
+
+	            FindItemResponse response = service.findItem(StandardFolder.INBOX, MessagePropertyPath.getAllPropertyPaths(), restriction);
+
+	            for (int i = 0; i < response.getItems().size(); i++)
+	            {
+	                if (response.getItems().get(i) instanceof Message)
+	                {
+	                    Message message = (Message) response.getItems().get(i);
+
+	                    System.out.println("Subject = " + message.getSubject());
+	                    System.out.println("ReceivedTime = " + message.getReceivedTime());
+	                    System.out.println("EntryID = " + message.getEntryId());
+
+	                    if (message.getFrom() != null)
+	                    {
+	                        System.out.println("From = " + message.getFrom().getName());
+	                    }
+
+	                    System.out.println("Body Preview = " + message.getBodyPlainText());
+	                    System.out.println("----------------------------------------------------------------");
+
+	                }
+	            }
+	        }
+	        catch (ServiceException e)
+	        {
+	            System.out.println(e.getMessage());
+	            System.out.println(e.getXmlMessage());
+
 	            e.printStackTrace();
 	        }
 	}
