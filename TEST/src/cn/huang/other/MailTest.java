@@ -1,4 +1,4 @@
-package cn.huang.other;
+ï»¿package cn.huang.other;
 
 import java.io.File;
 import java.io.IOException;
@@ -28,29 +28,29 @@ import cn.itcast.mail.MailUtils;
 public class MailTest {
 	
 	/*
-	 * ²âÊÔÓÊ¼şµÄ·¢ËÍ
+	 * æµ‹è¯•é‚®ä»¶çš„å‘é€
 	 */
 	@Test
 	public void fun1() throws MessagingException, IOException{
 		/*
-		 * µÃ´øsession¶ÔÏó
+		 * å¾—å¸¦sessionå¯¹è±¡
 		 */
 		Session session = MailUtils.createSession("smtp.163.com", "m17817557192", "huangbian123");
 		
 		/*
-		 * ´´½¨ÓÊ¼ş¶ÔÏó
+		 * åˆ›å»ºé‚®ä»¶å¯¹è±¡
 		 */
 		Mail mail = new Mail("m17817557192@163.com",
 				"huang.yejun@sz-excel.com",
-				"²»ÊÇÀ¬»øÓÊ¼şÊÇÊ²Ã´ÄØ£¿",
-				"ÎÒÊÇ»ÆÒ¶¾ü£¬ÕâÊÇÎÒ´Ó163¸øÄã·¢µÄÓÊÏä");
+				"ä¸æ˜¯åƒåœ¾é‚®ä»¶æ˜¯ä»€ä¹ˆå‘¢ï¼Ÿ",
+				"æˆ‘æ˜¯é»„å¶å†›ï¼Œè¿™æ˜¯æˆ‘ä»163ç»™ä½ å‘çš„é‚®ç®±");
 		
 		/*
-		 * ¸½¼şÔİ²»´´½¨
+		 * é™„ä»¶æš‚ä¸åˆ›å»º
 		 */
 		
 		/*
-		 * ·¢ËÍÓÊ¼ş
+		 * å‘é€é‚®ä»¶
 		 */
 		MailUtils.send(session, mail);
 	}
@@ -58,44 +58,44 @@ public class MailTest {
 	@Test
 	public void fun2() throws AddressException, MessagingException{
 		/*
-		 * ²»ÀûÓÃ¹¤¾ßÀà½øĞĞ·¢ËÍ£¬Ğ´×îÔ­Ê¼µÄÂã´úÂë
+		 * ä¸åˆ©ç”¨å·¥å…·ç±»è¿›è¡Œå‘é€ï¼Œå†™æœ€åŸå§‹çš„è£¸ä»£ç 
 		 */
 		
 		/*
-		 * 1¡¢´´½¨sessionµÄÇ°ÌáÌõ¼ş£¬Ö÷»ú·şÎñÆ÷ºÍÊÚÈ¨ÈÏÖ¤
+		 * 1ã€åˆ›å»ºsessionçš„å‰ææ¡ä»¶ï¼Œä¸»æœºæœåŠ¡å™¨å’Œæˆæƒè®¤è¯
 		 */
 		Properties props = new Properties();
 		props.setProperty("mail.host", "smtp.126.com");
 		props.setProperty("mail.smtp.auth", "true");
 		
 		/*
-		 * ´´½¨ÊÚÈ¨¶ÔÏó
+		 * åˆ›å»ºæˆæƒå¯¹è±¡
 		 */
 		Authenticator auth = new Authenticator(){
 			protected PasswordAuthentication getPasswordAuthentication(){
-				return new PasswordAuthentication("mail126_hyj","huangbian123");//ÕâÀïÊÇ¶ÔÕËºÅÃû³ÆÊÚÈ¨
+				return new PasswordAuthentication("mail126_hyj","huangbian123");//è¿™é‡Œæ˜¯å¯¹è´¦å·åç§°æˆæƒ
 			}
 		};
 		
 		/*
-		 * »ñµÃsession¶ÔÏó
+		 * è·å¾—sessionå¯¹è±¡
 		 */
 		Session session = Session.getInstance(props, auth);
 		
 		/*
-		 * ´´½¨MimeMessage
+		 * åˆ›å»ºMimeMessage
 		 */
 		MimeMessage msg = new MimeMessage(session);
-		msg.setFrom(new InternetAddress("itcast_cxf@126.com"));//ÉèÖÃ·¢¼şÈË
-		msg.setRecipients(RecipientType.TO, "mail126_hyj@126.com");//ÉèÖÃÊÕ¼şÈË
-		msg.setRecipients(RecipientType.CC, "m17817557192@163.com");//ÉèÖÃ³­ËÍÈËµØÖ·
-		//msg.setRecipients(RecipientType.BCC, "itcast_cxf@sina.com");//ÉèÖÃÃØÃÜ³­ËÍµØÖ·
+		msg.setFrom(new InternetAddress("itcast_cxf@126.com"));//è®¾ç½®å‘ä»¶äºº
+		msg.setRecipients(RecipientType.TO, "mail126_hyj@126.com");//è®¾ç½®æ”¶ä»¶äºº
+		msg.setRecipients(RecipientType.CC, "m17817557192@163.com");//è®¾ç½®æŠ„é€äººåœ°å€
+		//msg.setRecipients(RecipientType.BCC, "itcast_cxf@sina.com");//è®¾ç½®ç§˜å¯†æŠ„é€åœ°å€
 		
-		msg.setSubject("ÕâÊÇÒ»·İ²âÊÔÓÊ¼ş");
-		msg.setContent("ÕâÊÇÒ»·İ²âÊÔÓÊ¼ş£¬Çë×¢Òâ²éÊÕ","text/html;charset=utf-8");
+		msg.setSubject("è¿™æ˜¯ä¸€ä»½æµ‹è¯•é‚®ä»¶");
+		msg.setContent("è¿™æ˜¯ä¸€ä»½æµ‹è¯•é‚®ä»¶ï¼Œè¯·æ³¨æ„æŸ¥æ”¶","text/html;charset=utf-8");
 		
 		/*
-		 * ·¢ËÍ
+		 * å‘é€
 		 */
 		Transport.send(msg);
 		
@@ -103,7 +103,7 @@ public class MailTest {
 	@Test
 	public void fun3() throws AddressException, MessagingException, IOException{
 		/*
-		 * ²âÊÔÓĞ¸½¼şµÄÓÊ¼ş·¢ËÍ
+		 * æµ‹è¯•æœ‰é™„ä»¶çš„é‚®ä»¶å‘é€
 		 */
 		Properties props = new Properties();
 		props.setProperty("mail.host", "smtp.126.com");
@@ -123,23 +123,23 @@ public class MailTest {
 		
 		///////////////////////////////////////////////
 		/*
-		 * µ±·¢ËÍ°üº¬¸½¼şµÄÓÊ¼şÊ±£¬ÓÊ¼şÌå¾ÍÎª¶à²»¼ûĞÎÊ½£¡
-		 * 1.´´½¨Ò»¸ö¶à²»¼ûµÄ²»¼ûÄÚÈİ£¬MimeMultipart
-		 *  MimeMultipart¾ÍÊÇÒ»¸ö¼¯ºÏ£¬ÓÃÀ´×°ÔØ¶à¸öÖ÷Ìå²¿¼ş£¡
-		 * 2.ÎÒÃÇĞèÒª´´½¨Á½¸öÖ÷Ìå²¿¼ş£¬Ò»¸öÊÇÎÄ±¾ÄÚÈİµÄ£¬ÁíÒ»¸öÊÇ¸½¼şµÄ
-		 * 	Ö÷Ìå²¿¼ş½ĞMimeBodyPart
-		 * 3.°ÑMimeMultipartÉèÖÃ¸øMimeMessageµÄÄÚÈİ¡£
+		 * å½“å‘é€åŒ…å«é™„ä»¶çš„é‚®ä»¶æ—¶ï¼Œé‚®ä»¶ä½“å°±ä¸ºå¤šä¸è§å½¢å¼ï¼
+		 * 1.åˆ›å»ºä¸€ä¸ªå¤šä¸è§çš„ä¸è§å†…å®¹ï¼ŒMimeMultipart
+		 *  MimeMultipartå°±æ˜¯ä¸€ä¸ªé›†åˆï¼Œç”¨æ¥è£…è½½å¤šä¸ªä¸»ä½“éƒ¨ä»¶ï¼
+		 * 2.æˆ‘ä»¬éœ€è¦åˆ›å»ºä¸¤ä¸ªä¸»ä½“éƒ¨ä»¶ï¼Œä¸€ä¸ªæ˜¯æ–‡æœ¬å†…å®¹çš„ï¼Œå¦ä¸€ä¸ªæ˜¯é™„ä»¶çš„
+		 * 	ä¸»ä½“éƒ¨ä»¶å«MimeBodyPart
+		 * 3.æŠŠMimeMultipartè®¾ç½®ç»™MimeMessageçš„å†…å®¹ã€‚
 		 */
 		MimeMultipart list = new MimeMultipart();
 		
-		//´´½¨MimeBodyPart
+		//åˆ›å»ºMimeBodyPart
 		MimeBodyPart part1 = new MimeBodyPart();
-		//ÉèÖÃÖ÷Ìå²¿¼şµÄÄÚÈİ
-		part1.setContent("ÕâÊÇ°üº¬¸½¼şµÄÀ¬»øÓÊ¼ş","text/html;charset=utf-8");
-		//°ÑÖ÷Ìå²¿¼şÌí¼Óµ½¼¯ºÏÖĞ
+		//è®¾ç½®ä¸»ä½“éƒ¨ä»¶çš„å†…å®¹
+		part1.setContent("è¿™æ˜¯åŒ…å«é™„ä»¶çš„åƒåœ¾é‚®ä»¶","text/html;charset=utf-8");
+		//æŠŠä¸»ä½“éƒ¨ä»¶æ·»åŠ åˆ°é›†åˆä¸­
 		list.addBodyPart(part1);
 		
-		//´´½¨MimeBodyPart
+		//åˆ›å»ºMimeBodyPart
 		MimeBodyPart part2 = new MimeBodyPart();
 		part2.attachFile(new File("G:/apple1.jpg"));
 		part2.attachFile(new File("G:/apple2.png"));
@@ -149,7 +149,7 @@ public class MailTest {
 		
 		///////////////////////////////////////////////
 		/*
-		 * ·¢ËÍ
+		 * å‘é€
 		 */
 		Transport.send(msg);
 		
@@ -191,25 +191,25 @@ public class MailTest {
 			String from = props.getProperty("from");
 			String to = props.getProperty("to");
 			String prepath = props.getProperty("prepath") ;
-			String path = prepath + suffixpath;//µÃµ½ÍêÕûµÄÂ·¾¶Ãû
+			String path = prepath + suffixpath;//å¾—åˆ°å®Œæ•´çš„è·¯å¾„å
 			String subject = props.getProperty("subject");
 			File attachFile = new File(path);
 			/*
-			 * »ñµÃsession
+			 * è·å¾—session
 			 */
 			Session session = MailUtils.createSession(mail_host, username, password);
 			/*
-			 * ´´½¨ÓÊ¼ş¶ÔÏó
+			 * åˆ›å»ºé‚®ä»¶å¯¹è±¡
 			 */
 			Mail mail = new Mail(from, to, subject, "Please being informed,There are attach in following!");
 			
 			/*
-			 * ´´½¨ÓÊ¼şµÄ¸½¼ş¶ÔÏó
-			 * ºóÆÚµÄÀ©Õ¹ÎªÕë¶Ô¸÷ÖÖ²»Í¬µÄÎÄ¼şÀàĞÍ×öÏàÓ¦µÄ´¦Àí
+			 * åˆ›å»ºé‚®ä»¶çš„é™„ä»¶å¯¹è±¡
+			 * åæœŸçš„æ‰©å±•ä¸ºé’ˆå¯¹å„ç§ä¸åŒçš„æ–‡ä»¶ç±»å‹åšç›¸åº”çš„å¤„ç†
 			 */
 			AttachBean attach = new AttachBean(attachFile, suffixpath + "txt");
 			/*
-			 * ·¢ËÍ
+			 * å‘é€
 			 */
 			
 			MailUtils.send(session, mail);

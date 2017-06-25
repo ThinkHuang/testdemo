@@ -1,14 +1,14 @@
-package cn.huang.other;
+ï»¿package cn.huang.other;
 
 import java.io.IOException;
 
 public class StrToByteTest {
 	public static void main(String[] args) throws IOException {
-		String str="¹ö¶¿×Ó";
-		//ÒªÏëÒªÄÃµ½¡°¹ö¶¿×Ó¡±µÄ×Ö½ÚÂë£¬±ØĞë½«¸Ã×Ö·û´®×ª»»³É×Ö½Ú²ÅĞĞ¡£
+		String str="æ»šçŠŠå­";
+		//è¦æƒ³è¦æ‹¿åˆ°â€œæ»šçŠŠå­â€çš„å­—èŠ‚ç ï¼Œå¿…é¡»å°†è¯¥å­—ç¬¦ä¸²è½¬æ¢æˆå­—èŠ‚æ‰è¡Œã€‚
 		byte[] buf = new byte[1024];
 		buf = str.getBytes();
-		System.out.print("¡¾");
+		System.out.print("ã€");
 		for(int i = 0; i < buf.length; i++){
 			if(i == buf.length - 1){
 				System.out.print(buf[i]);
@@ -16,6 +16,6 @@ public class StrToByteTest {
 			System.out.print(buf[i]+" ");
 		}
 		}
-		System.out.print("¡¿");
+		System.out.print("ã€‘");
 	}
 }

@@ -1,4 +1,4 @@
-package cn.huang.test;
+ï»¿package cn.huang.test;
 
 public class tryFinallyTest {
 	public static void main(String[] args) {
@@ -6,8 +6,8 @@ public class tryFinallyTest {
 		System.out.println(new tryFinallyTest().test1());
 	}
 	/**
-	 * ËµÃ÷£ºÈç¹ûtryºÍfinallyÖĞ¶¼ÓĞreturnÓï¾ä£¬Õë¶Ô»ù±¾Êı¾İ ÀàĞÍÀ´Ëµ£¬finallyÖĞreturnÇ°µÄÓï¾ä»áÖ´ĞĞ£¬
-	 * µ«ÊÇ£¬return²»»á¶ÔtryÖĞµÄ·µ»ØÖµÔì³ÉÓ°Ïì¡£
+	 * è¯´æ˜ï¼šå¦‚æœtryå’Œfinallyä¸­éƒ½æœ‰returnè¯­å¥ï¼Œé’ˆå¯¹åŸºæœ¬æ•°æ® ç±»å‹æ¥è¯´ï¼Œfinallyä¸­returnå‰çš„è¯­å¥ä¼šæ‰§è¡Œï¼Œ
+	 * ä½†æ˜¯ï¼Œreturnä¸ä¼šå¯¹tryä¸­çš„è¿”å›å€¼é€ æˆå½±å“ã€‚
 	 * @return
 	 */
 	private int test1() {
@@ -29,7 +29,7 @@ public class tryFinallyTest {
 		return 2;
 	}
 /**
- * ËµÃ÷£ºtryÖĞµÄ·µ»ØÖµ»áÊ×ÏÈÌî³ä½øÈ¥£¬ÖÁÓÚfinallyÖĞµÄÓ°Ïì£¬Õë¶ÔÓÚ¡°»ù±¾±äÁ¿¡±²»»áÓĞÓ°Ïì¡£
+ * è¯´æ˜ï¼štryä¸­çš„è¿”å›å€¼ä¼šé¦–å…ˆå¡«å……è¿›å»ï¼Œè‡³äºfinallyä¸­çš„å½±å“ï¼Œé’ˆå¯¹äºâ€œåŸºæœ¬å˜é‡â€ä¸ä¼šæœ‰å½±å“ã€‚
  * @return
  */
 	private int test() {

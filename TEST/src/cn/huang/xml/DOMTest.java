@@ -1,4 +1,4 @@
-package cn.huang.xml;
+ï»¿package cn.huang.xml;
 
 import java.io.File;
 import java.security.KeyStore.Builder;
@@ -19,7 +19,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 /**
- * ¸ÃÀàÖ÷ÒªÊÇÀûÓÃw3cÀ´½øĞĞXMLµÄ½Úµã´´½¨ºÍXMLÔªËØµÄ¶ÁÈ¡¡£
+ * è¯¥ç±»ä¸»è¦æ˜¯åˆ©ç”¨w3cæ¥è¿›è¡ŒXMLçš„èŠ‚ç‚¹åˆ›å»ºå’ŒXMLå…ƒç´ çš„è¯»å–ã€‚
  * @author huangyejun
  *
  */
@@ -38,45 +38,45 @@ public class DOMTest {
 	}
 	
 	public static void main(String[] args) {
-		//DOMTest1();//¸øperson.xmlÉèÖÃÊôĞÔºÍ½Úµã¡£
-		readXMLByDom("f:/person.xml");//¶ÁÈ¡person.xmlÖĞµÄÔªËØ
+		//DOMTest1();//ç»™person.xmlè®¾ç½®å±æ€§å’ŒèŠ‚ç‚¹ã€‚
+		readXMLByDom("f:/person.xml");//è¯»å–person.xmlä¸­çš„å…ƒç´ 
 	}
 	
 
 	
 	
 	private static void readXMLByDom(String xmlPath) {
-		//³õÊ¼»¯DocumentBuilderFactoryÎÄµµ´´½¨¹¤³§£¬²¢ÇÒ½«Ö¸¶¨Ä¿Â¼ÏÂµÄÎÄ¼ş½âÎöÎªÒ»¸öXML,µÃµ½Ò»¸öDocument¶ÔÏó
+		//åˆå§‹åŒ–DocumentBuilderFactoryæ–‡æ¡£åˆ›å»ºå·¥å‚ï¼Œå¹¶ä¸”å°†æŒ‡å®šç›®å½•ä¸‹çš„æ–‡ä»¶è§£æä¸ºä¸€ä¸ªXML,å¾—åˆ°ä¸€ä¸ªDocumentå¯¹è±¡
 		init(xmlPath);
-		//µÃµ½XMLÎÄµµÖĞµÄ¸ùÔªËØ
+		//å¾—åˆ°XMLæ–‡æ¡£ä¸­çš„æ ¹å…ƒç´ 
 		Element element = doc.getDocumentElement();
 		System.out.println("Root element:" + element.getTagName());
-		//µÃµ½½ÚµãÁ´µÄ³¤¶È£¬ÕâÀïµÄ´úÂëºÍ¶ÁÈ¡Ã»ÓĞ¹ØÏµ£¬½ö½ö×÷ÎªĞÅÏ¢Êä³ö¡£
+		//å¾—åˆ°èŠ‚ç‚¹é“¾çš„é•¿åº¦ï¼Œè¿™é‡Œçš„ä»£ç å’Œè¯»å–æ²¡æœ‰å…³ç³»ï¼Œä»…ä»…ä½œä¸ºä¿¡æ¯è¾“å‡ºã€‚
 		NodeList nodeList = doc.getElementsByTagName("person");
-		System.out.println("book½ÚµãÁ´µÄ³¤¶È£º" + nodeList.getLength());
-		//ÕâÀï½«µÃµ½¸¸½Úµãperson,bookÏÂÃæÓĞºÜ¶àµÄperson½Úµã£¬person½ÚµãÕÒµ½µÄ·½Ê½ÊÇÓÉ¸¸½Úµãµ÷ÓÃgetElementsByTagName·½·¨µÃµ½µÄ
+		System.out.println("bookèŠ‚ç‚¹é“¾çš„é•¿åº¦ï¼š" + nodeList.getLength());
+		//è¿™é‡Œå°†å¾—åˆ°çˆ¶èŠ‚ç‚¹person,bookä¸‹é¢æœ‰å¾ˆå¤šçš„personèŠ‚ç‚¹ï¼ŒpersonèŠ‚ç‚¹æ‰¾åˆ°çš„æ–¹å¼æ˜¯ç”±çˆ¶èŠ‚ç‚¹è°ƒç”¨getElementsByTagNameæ–¹æ³•å¾—åˆ°çš„
 		Node fatherNode = nodeList.item(0);
-		//ÕâÀïµÃµ½µÄÊÇµÚÒ»¸ö×Ó½ÚµãÎªpersonµÄNode¡£
-		System.out.println("¸¸½ÚµãÎª£º" + fatherNode.getNodeName());
+		//è¿™é‡Œå¾—åˆ°çš„æ˜¯ç¬¬ä¸€ä¸ªå­èŠ‚ç‚¹ä¸ºpersonçš„Nodeã€‚
+		System.out.println("çˆ¶èŠ‚ç‚¹ä¸ºï¼š" + fatherNode.getNodeName());
 		
-		//Èç¹ûÎªElement£¬µÃµ½fatherNode½ÚµãµÄÊôĞÔÖµ£¬·ñÔòÎª¿Õ¡£-->ÆäÊµ¾ÍÊÇËµ£¬¿´fatherNodeÕâ¸ö½ÚµãÊÇ·ñÊÇÔªËØ½Úµã£¬Èç¹ûÊÇµÄ»°£¬¾Í·µ»ØÒ»¸öNamedNodeMap£¬ÆäÊµÖÊ¾ÍÊÇÒ»¸öMap£¬²»¹ıÈ´ÊÇNodeMap
+		//å¦‚æœä¸ºElementï¼Œå¾—åˆ°fatherNodeèŠ‚ç‚¹çš„å±æ€§å€¼ï¼Œå¦åˆ™ä¸ºç©ºã€‚-->å…¶å®å°±æ˜¯è¯´ï¼Œçœ‹fatherNodeè¿™ä¸ªèŠ‚ç‚¹æ˜¯å¦æ˜¯å…ƒç´ èŠ‚ç‚¹ï¼Œå¦‚æœæ˜¯çš„è¯ï¼Œå°±è¿”å›ä¸€ä¸ªNamedNodeMapï¼Œå…¶å®è´¨å°±æ˜¯ä¸€ä¸ªMapï¼Œä¸è¿‡å´æ˜¯NodeMap
 		NamedNodeMap attributes = fatherNode.getAttributes();
 		System.out.println("attribute:" + attributes.getLength());
 		for(int i = 0; i < attributes.getLength(); i++){
 			Node attribute = attributes.item(i);
-			System.out.println("bookµÄÊôĞÔÃûÎª£º" + attribute.getNodeName()
-					+ " Ïà¶ÔÓ¦µÄÊôĞÔÖµÎª£º" + attribute.getNodeName());
+			System.out.println("bookçš„å±æ€§åä¸ºï¼š" + attribute.getNodeName()
+					+ " ç›¸å¯¹åº”çš„å±æ€§å€¼ä¸ºï¼š" + attribute.getNodeName());
 		}
 		
-		//µÃµ½µÚÒ»¸ö×Ó½ÚµãÎªpersonµÄNodeºó£¬Í¨¹ı¸ÃNode½«µÃµ½Æä½ÚµãÏÂµÄÊôĞÔ¡£
+		//å¾—åˆ°ç¬¬ä¸€ä¸ªå­èŠ‚ç‚¹ä¸ºpersonçš„Nodeåï¼Œé€šè¿‡è¯¥Nodeå°†å¾—åˆ°å…¶èŠ‚ç‚¹ä¸‹çš„å±æ€§ã€‚
 		NodeList childNodes = fatherNode.getChildNodes();
 		System.out.println("childNode:" + childNodes.getLength());
-		//Ñ­»·±éÀú³öperson½ÚµãÏÂµÄ×Ó½ÚµãµÄÃû³Æ¼°Æä¶ÔÓ¦µÄÖµ¡£
+		//å¾ªç¯éå†å‡ºpersonèŠ‚ç‚¹ä¸‹çš„å­èŠ‚ç‚¹çš„åç§°åŠå…¶å¯¹åº”çš„å€¼ã€‚
 		for(int j = 0; j < childNodes.getLength(); j++){
 			Node childNode = childNodes.item(j);
 			if(childNode instanceof Element){
-				System.out.println("×Ó½ÚµãÃûÎª£º" + childNode.getNodeName()
-						+ " Ïà¶ÔÓ¦µÄÖµÎª£º" + childNode.getNodeName());
+				System.out.println("å­èŠ‚ç‚¹åä¸ºï¼š" + childNode.getNodeName()
+						+ " ç›¸å¯¹åº”çš„å€¼ä¸ºï¼š" + childNode.getNodeName());
 			}
 		}
 	}
@@ -86,11 +86,11 @@ public class DOMTest {
 
 	private static void init(String xmlPath) {
 		try {
-			//»ñÈ¡DocumentBuilderFactoryµÄĞÂÊµÀı
+			//è·å–DocumentBuilderFactoryçš„æ–°å®ä¾‹
 			//DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-			//Ê¹ÓÃµ±Ç°ÅäÖÃµÄ²ÎÊı´´½¨Ò»¸öĞÂµÄDocumentBuilderĞÂÊµÀı
+			//ä½¿ç”¨å½“å‰é…ç½®çš„å‚æ•°åˆ›å»ºä¸€ä¸ªæ–°çš„DocumentBuilderæ–°å®ä¾‹
 			//DocumentBuilder db = dbf.newDocumentBuilder();
-			//½«¸ø¶¨ÊäÈëÔ´µÄÄÚÈİ½âÎöÎªÒ»¸öXMLÎÄµµ£¬²¢ÇÒ·µ»ØÒ»¸öĞÂµÄDOM Document¶ÔÏó¡£
+			//å°†ç»™å®šè¾“å…¥æºçš„å†…å®¹è§£æä¸ºä¸€ä¸ªXMLæ–‡æ¡£ï¼Œå¹¶ä¸”è¿”å›ä¸€ä¸ªæ–°çš„DOM Documentå¯¹è±¡ã€‚
 			doc = builder.parse(new File(xmlPath));
 		} catch (Exception e) {
 			throw new RuntimeException(e);
@@ -103,29 +103,29 @@ public class DOMTest {
 	public static void DOMTest1(){
 		try {
 			doc= builder.newDocument();
-			//ÓÉÉÏÃæµÄdocµÃµ½ÁËDocument¶ÔÏó£¬´´½¨¸ù½Úµã
-			Element root = doc.createElement("ÀÏÊ¦");
-			//ÏÂÃæÊÇÈı¸ö×Ó½Úµã¡£
-			Element wang = doc.createElement("Íõ");
-			Element liu = doc.createElement("Áõ");
+			//ç”±ä¸Šé¢çš„docå¾—åˆ°äº†Documentå¯¹è±¡ï¼Œåˆ›å»ºæ ¹èŠ‚ç‚¹
+			Element root = doc.createElement("è€å¸ˆ");
+			//ä¸‹é¢æ˜¯ä¸‰ä¸ªå­èŠ‚ç‚¹ã€‚
+			Element wang = doc.createElement("ç‹");
+			Element liu = doc.createElement("åˆ˜");
 			Element row = doc.createElement("row");
-			//ÔÚÃ¿¸ö×Ó½ÚµãÏÂÃæÔö¼ÓÄ©½ÚµãÔªËØ²¢ÉèÖÃÖµ
-			wang.appendChild(doc.createTextNode("ÎÒÊÇÍõÀÏÊ¦"));
-			liu.appendChild(doc.createTextNode("ÎÒÊÇÁõÀÏÊ¦"));
-			//Õâ¸ö½Úµã±È½ÏÌØÊâ£¬ÔÚÒ»¸ö½ÚµãÖĞÓĞÈı¸ö¼üÖµ¶Ô¡£
+			//åœ¨æ¯ä¸ªå­èŠ‚ç‚¹ä¸‹é¢å¢åŠ æœ«èŠ‚ç‚¹å…ƒç´ å¹¶è®¾ç½®å€¼
+			wang.appendChild(doc.createTextNode("æˆ‘æ˜¯ç‹è€å¸ˆ"));
+			liu.appendChild(doc.createTextNode("æˆ‘æ˜¯åˆ˜è€å¸ˆ"));
+			//è¿™ä¸ªèŠ‚ç‚¹æ¯”è¾ƒç‰¹æ®Šï¼Œåœ¨ä¸€ä¸ªèŠ‚ç‚¹ä¸­æœ‰ä¸‰ä¸ªé”®å€¼å¯¹ã€‚
 			row.appendChild(doc.createTextNode("queryDTO.enterpriseId=\"gdf\" "));
 			row.appendChild(doc.createTextNode("queryDTO.loginName=\"gdfs\" "));
 			row.appendChild(doc.createTextNode("queryDTO.state=\"0\""));
 			
-			//½«´´½¨µÄ×Ó½Úµã¡±¹Ò¡°µ½¸ù½ÚµãrootÏÂ¡£
+			//å°†åˆ›å»ºçš„å­èŠ‚ç‚¹â€æŒ‚â€œåˆ°æ ¹èŠ‚ç‚¹rootä¸‹ã€‚
 			root.appendChild(wang);
 			root.appendChild(liu);
 			root.appendChild(row);
 			
-			doc.appendChild(root);//½«rootÏÂµÄ×Ó½Úµã¼ÓÈëµ½rootÏÂÃæ£¬½«root¸ü½ÚµãºÍDocument¶ÔÏó°ó¶¨£¬±ãÓÚ²Ù×÷ÆäÖĞµÄ½Úµã¶ÔÏó¡£
+			doc.appendChild(root);//å°†rootä¸‹çš„å­èŠ‚ç‚¹åŠ å…¥åˆ°rootä¸‹é¢ï¼Œå°†rootæ›´èŠ‚ç‚¹å’ŒDocumentå¯¹è±¡ç»‘å®šï¼Œä¾¿äºæ“ä½œå…¶ä¸­çš„èŠ‚ç‚¹å¯¹è±¡ã€‚
 			Transformer transformer = TransformerFactory.newInstance().newTransformer();
-			transformer.setOutputProperty(OutputKeys.ENCODING, "gb2312");//ÉèÖÃ´´½¨µÄ±àÂë¸ñÊ½
-			transformer.setOutputProperty(OutputKeys.INDENT, "yes");//ÉèÖÃÊÇ·ñËõ½ø¡£
+			transformer.setOutputProperty(OutputKeys.ENCODING, "gb2312");//è®¾ç½®åˆ›å»ºçš„ç¼–ç æ ¼å¼
+			transformer.setOutputProperty(OutputKeys.INDENT, "yes");//è®¾ç½®æ˜¯å¦ç¼©è¿›ã€‚
 			transformer.transform(new DOMSource(doc), 
 					new StreamResult(outfile));
 			

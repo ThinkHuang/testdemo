@@ -1,4 +1,4 @@
-package cn.huang.SerializableTest;
+ï»¿package cn.huang.SerializableTest;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -18,17 +18,17 @@ public class TestObjSerializeAndDeserialize {
 	public static void main(String[] args) throws FileNotFoundException, IOException, ClassNotFoundException {
 		// TODO Auto-generated method stub
 		/*
-		 * ĞòÁĞ»¯µÄ²½ÖèÊÇÕâÑùµÄ£º
-		 * 1¡¢½¨Á¢Ò»¸ö¶ÔÏóÊä³öÁ÷£¨ÎªÊ²Ã´ÊÇÊä³öÁ÷ÄØ£¿ÒòÎªÊÇ½«¶ÔÏó´ÓÄÚ´æÖĞĞ´µ½Ó²ÅÌÉÏ£©£¬²¢Ö¸¶¨ÒªĞòÁĞ»¯µÄ¶ÔÏóµÄ¾ßÌåÎ»ÖÃ£¬ÕâÀïÀûÓÃFileInputStream¹ØÁªÒ»¸öÎÄ¼ş£¬f:\\Person.txt
-		 * 2¡¢ÀûÓÃ¶ÔÏóÊä³öÁ÷µÄwriteObject·½·¨£¬½«person¶ÔÏóĞ´µ½ÎÄ¼şÖĞ¡£
-		 * 3¡¢¹Ø±ÕÁ÷¶ÔÏó¡£
+		 * åºåˆ—åŒ–çš„æ­¥éª¤æ˜¯è¿™æ ·çš„ï¼š
+		 * 1ã€å»ºç«‹ä¸€ä¸ªå¯¹è±¡è¾“å‡ºæµï¼ˆä¸ºä»€ä¹ˆæ˜¯è¾“å‡ºæµå‘¢ï¼Ÿå› ä¸ºæ˜¯å°†å¯¹è±¡ä»å†…å­˜ä¸­å†™åˆ°ç¡¬ç›˜ä¸Šï¼‰ï¼Œå¹¶æŒ‡å®šè¦åºåˆ—åŒ–çš„å¯¹è±¡çš„å…·ä½“ä½ç½®ï¼Œè¿™é‡Œåˆ©ç”¨FileInputStreamå…³è”ä¸€ä¸ªæ–‡ä»¶ï¼Œf:\\Person.txt
+		 * 2ã€åˆ©ç”¨å¯¹è±¡è¾“å‡ºæµçš„writeObjectæ–¹æ³•ï¼Œå°†personå¯¹è±¡å†™åˆ°æ–‡ä»¶ä¸­ã€‚
+		 * 3ã€å…³é—­æµå¯¹è±¡ã€‚
 		 */
 		SerializePerson();
 		/*
-		 * ·´ĞòÁĞ»¯µÄ²½Öè£º
-		 * 1¡¢½¨Á¢Ò»¸ö¶ÔÏóÊäÈëÁ÷£¨´ÓÓ²ÅÌ½«¶ÔÏó¶Áµ½ÄÚ´æÖĞ£©£¬²¢Ö¸¶¨Òª´ÓÄÄ¸öÎÄ¼şÖĞÄÃ¶ÔÏó£¬ÕâÀïÒ²ÊÇÓÃFileInputStream¹ØÁªÒ»¸öÎÄ¼ş¡£
-		 * 2¡¢ÀûÓÃ¶ÔÏóÁ÷µÄreadObject·½·¨µÃµ½¶ÔÏó£¬²¢·µ»Ø¸Ã¶ÔÏóµÄÊµÀı¡£
-		 * 3¡¢Ê¹ÓÃ¸Ã¶ÔÏó¡£
+		 * ååºåˆ—åŒ–çš„æ­¥éª¤ï¼š
+		 * 1ã€å»ºç«‹ä¸€ä¸ªå¯¹è±¡è¾“å…¥æµï¼ˆä»ç¡¬ç›˜å°†å¯¹è±¡è¯»åˆ°å†…å­˜ä¸­ï¼‰ï¼Œå¹¶æŒ‡å®šè¦ä»å“ªä¸ªæ–‡ä»¶ä¸­æ‹¿å¯¹è±¡ï¼Œè¿™é‡Œä¹Ÿæ˜¯ç”¨FileInputStreamå…³è”ä¸€ä¸ªæ–‡ä»¶ã€‚
+		 * 2ã€åˆ©ç”¨å¯¹è±¡æµçš„readObjectæ–¹æ³•å¾—åˆ°å¯¹è±¡ï¼Œå¹¶è¿”å›è¯¥å¯¹è±¡çš„å®ä¾‹ã€‚
+		 * 3ã€ä½¿ç”¨è¯¥å¯¹è±¡ã€‚
 		 */
 		Person person = DeserializePerson();
 		System.out.println("name="+person.getName() + "age=" + person.getAge() + "sex=" + person.getSex());
@@ -39,7 +39,7 @@ public class TestObjSerializeAndDeserialize {
 		ObjectInputStream ois = new ObjectInputStream(new FileInputStream("f:\\Person.txt"));
 		
 		Person p = (Person) ois.readObject();
-		System.out.println("Person¶ÔÏó·´ĞòÁĞ»¯³É¹¦£¡");
+		System.out.println("Personå¯¹è±¡ååºåˆ—åŒ–æˆåŠŸï¼");
 		return p;
 	}
 
@@ -47,12 +47,12 @@ public class TestObjSerializeAndDeserialize {
 		// TODO Auto-generated method stub
 		Person p = new Person();
 		p.setAge(19);
-		p.setName("ÕÅÈı");
-		p.setSex("ÄĞ");
+		p.setName("å¼ ä¸‰");
+		p.setSex("ç”·");
 		
 		ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("f:\\Person.txt"));
 		oos.writeObject(p);
-		System.out.println("Person¶ÔÏóĞòÁĞ»¯³É¹¦£¡");
+		System.out.println("Personå¯¹è±¡åºåˆ—åŒ–æˆåŠŸï¼");
 		oos.close();
 	}
 

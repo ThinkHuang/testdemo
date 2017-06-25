@@ -1,4 +1,4 @@
-package cn.huang.other;
+﻿package cn.huang.other;
 
 public class SendEmailExcption extends Exception {
 

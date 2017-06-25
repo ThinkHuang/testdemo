@@ -1,12 +1,12 @@
-package cn.huang.tools;
+ï»¿package cn.huang.tools;
 
 public class ByteConvToChar {
 
 	final static String[] dates = new String[]{
-			"Áã","Ò¼","·¡","Èş","ËÁ","Îé","Â½","Æâ","°Æ","¾Á"
+			"é›¶","å£¹","è´°","å","è‚†","ä¼","é™†","æŸ’","æŒ","ç–"
 	};
 	final static String[] units = new String[]{
-			"Ôª","Ê®","°Ù","Ç§","Íò","Ê®","°Ù","Ç§","ÒÚ","Ê®"
+			"å…ƒ","å","ç™¾","åƒ","ä¸‡","å","ç™¾","åƒ","äº¿","å"
 	};
 	/**
 	 * @param args
@@ -28,7 +28,7 @@ public class ByteConvToChar {
 		//System.out.println(sb.toString());
 	}
 	private static String removeZero(StringBuffer sb) {
-		return sb.toString().replaceAll("Áã°Ù","Áã").replaceAll("ÁãÍò","Íò").replaceAll("ÁãÔª","Ôª ").replaceAll("ÁãÊ®","Áã").replaceAll("ÁãÇ§", "Áã").replaceAll("ÁãÁã", "Áã"); 
+		return sb.toString().replaceAll("é›¶ç™¾","é›¶").replaceAll("é›¶ä¸‡","ä¸‡").replaceAll("é›¶å…ƒ","å…ƒ ").replaceAll("é›¶å","é›¶").replaceAll("é›¶åƒ", "é›¶").replaceAll("é›¶é›¶", "é›¶"); 
 	}
 
 }

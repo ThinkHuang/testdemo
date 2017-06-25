@@ -1,4 +1,4 @@
-package cn.huang.test;
+ï»¿package cn.huang.test;
 
 public class RunnableTest implements Runnable{
 
@@ -54,7 +54,7 @@ public class RunnableTest implements Runnable{
 	
 }*/
 /**
- * Í¬²½·½·¨ºÍÍ¬²½´úÂë¿éÓÃµÄ²»ÊÇ²»ÊÇÍ¬Ò»¸öËø
+ * åŒæ­¥æ–¹æ³•å’ŒåŒæ­¥ä»£ç å—ç”¨çš„ä¸æ˜¯ä¸æ˜¯åŒä¸€ä¸ªé”
  * @author huangyejun
  *
  */
@@ -66,7 +66,7 @@ public class RunnableTest implements Runnable{
 		// TODO Auto-generated method stub
 		synchronized(RunnableTest.class){
 			System.out.println("Thread2 Starting");
-			//notify·½·¨Ö»ÓĞ³öÁËÍ¬²½·½·¨»òÕßÍ¬²½´úÂë¿éÒÔºó²Å»áÊÍ·ÅËø¡£
+			//notifyæ–¹æ³•åªæœ‰å‡ºäº†åŒæ­¥æ–¹æ³•æˆ–è€…åŒæ­¥ä»£ç å—ä»¥åæ‰ä¼šé‡Šæ”¾é”ã€‚
 			RunnableTest.class.notify();
 			System.out.println("Thread2 is going to waiting");
 			try {

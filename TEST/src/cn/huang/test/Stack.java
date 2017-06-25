@@ -1,11 +1,11 @@
-package cn.huang.test;
+ï»¿package cn.huang.test;
 
 import java.util.EmptyStackException;
 
 public class Stack {
 	/**
-	 * ×¢ÒâÕâÀïÎªÊ²Ã´Ëµ»á´æÔÚÄÚ´æÒç³öµÄÎÊÌâ£¬ÊÇÒòÎª£¬Êı×éelements×÷Îª´æ´¢ÈİÆ÷£¬
-	 * Ëü±¾Éí±¾Ã»ÓĞ
+	 * æ³¨æ„è¿™é‡Œä¸ºä»€ä¹ˆè¯´ä¼šå­˜åœ¨å†…å­˜æº¢å‡ºçš„é—®é¢˜ï¼Œæ˜¯å› ä¸ºï¼Œæ•°ç»„elementsä½œä¸ºå­˜å‚¨å®¹å™¨ï¼Œ
+	 * å®ƒæœ¬èº«æœ¬æ²¡æœ‰
 	 */
 	private Object[] elements = new Object[10];
 	private int size = 0;

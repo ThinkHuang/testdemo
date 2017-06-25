@@ -1,4 +1,4 @@
-package cn.huang.filetest;
+ï»¿package cn.huang.filetest;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -20,7 +20,7 @@ class User{
 		this.value = value;
 	}
 	public boolean equals(Object obj) { 
-		//ÏÂÃæµÄ´úÂëÃ»ÓĞÖ´ĞĞ£¬ËµÃ÷ÍùtreesetÖĞÔö¼ÓÊı¾İÊ±£¬²»»áÊ¹ÓÃµ½equals·½·¨¡£ 
+		//ä¸‹é¢çš„ä»£ç æ²¡æœ‰æ‰§è¡Œï¼Œè¯´æ˜å¾€treesetä¸­å¢åŠ æ•°æ®æ—¶ï¼Œä¸ä¼šä½¿ç”¨åˆ°equalsæ–¹æ³•ã€‚ 
 		boolean result = super.equals(obj); 
 		System.out.println(result); 
 		return result; 
@@ -28,7 +28,7 @@ class User{
 
 }	
 /**
- * ³ÌĞò¹¦ÄÜËµÃ÷£ºÍ³¼ÆÎÄ¼şÖĞµÄÏàÍ¬Ãû×ÖµÄ´ÎÊı²¢ÅÅĞò¡£
+ * ç¨‹åºåŠŸèƒ½è¯´æ˜ï¼šç»Ÿè®¡æ–‡ä»¶ä¸­çš„ç›¸åŒåå­—çš„æ¬¡æ•°å¹¶æ’åºã€‚
  * @author huangyejun
  *
  */
@@ -55,10 +55,10 @@ public class GetNameFromFileTest {
 
 	private static void sortResult(Map result) {
 		//TreeSet sortedResult = new TreeSet();
-		//Õë¶ÔÓÚTreeSet±¾ÉíÊÇÓĞ×Ô¼ºµÄ±È½ÏÆ÷µÄ£¬µ«ÊÇ£¬ÄÇÖ»ÊÇÕë¶Ô»ù±¾Êı¾İÀàĞÍ£¬¶øÇÒÊÇÄÜ¹»ÅÅĞòµÄÀàĞÍ£¬ËùÒÔÕë¶ÔÒıÓÃÀàĞÍ¾Í±ØĞë×Ô¼º¶¨Òå±È½ÏÆ÷
+		//é’ˆå¯¹äºTreeSetæœ¬èº«æ˜¯æœ‰è‡ªå·±çš„æ¯”è¾ƒå™¨çš„ï¼Œä½†æ˜¯ï¼Œé‚£åªæ˜¯é’ˆå¯¹åŸºæœ¬æ•°æ®ç±»å‹ï¼Œè€Œä¸”æ˜¯èƒ½å¤Ÿæ’åºçš„ç±»å‹ï¼Œæ‰€ä»¥é’ˆå¯¹å¼•ç”¨ç±»å‹å°±å¿…é¡»è‡ªå·±å®šä¹‰æ¯”è¾ƒå™¨
 		TreeSet<User> sortedResult = new TreeSet<User>(
 			new Comparator(){
-				//ÏÂÃæÕâ¸ö±È½ÏÆ÷µÄ×÷ÓÃÊÇ½«¶ÔÏó³öÏÖµÄ´ÎÊı½øĞĞ±È½Ï
+				//ä¸‹é¢è¿™ä¸ªæ¯”è¾ƒå™¨çš„ä½œç”¨æ˜¯å°†å¯¹è±¡å‡ºç°çš„æ¬¡æ•°è¿›è¡Œæ¯”è¾ƒ
 				public int compare(Object obj1,Object obj2){
 					User u1 = (User) obj1;
 					User u2 = (User) obj2;
@@ -72,7 +72,7 @@ public class GetNameFromFileTest {
 				}
 			}
 		);
-		//set¡¢listºÍµ¥ÖµMap¶¼ÊÇÓĞ×Ô¼ºµÄµü´úÆ÷µÄ
+		//setã€listå’Œå•å€¼Mapéƒ½æ˜¯æœ‰è‡ªå·±çš„è¿­ä»£å™¨çš„
 		Iterator it = result.keySet().iterator();
 		while(it.hasNext()){
 			String name = (String) it.next();

@@ -1,4 +1,4 @@
-package cn.huang.tools;
+ï»¿package cn.huang.tools;
 
 import java.util.Arrays;
 
@@ -22,7 +22,7 @@ public class ReverseArray {
 		System.out.println(Arrays.toString(arr));
 	}
 	/*
-	 * ËµÃ÷£ºÏÂÃæÕâ¸ö·½·¨Ê×Î²»¥»»²»ÓÃÅĞ¶ÏÊı×éµÄ³¤¶ÈÊÇµ¥Êı»¹ÊÇË«Êı£¬ÒòÎª£¬/2²Ù×÷ºÜºÃµÎ½â¾öÁËÕâ¸öÎÊÌâ¡£
+	 * è¯´æ˜ï¼šä¸‹é¢è¿™ä¸ªæ–¹æ³•é¦–å°¾äº’æ¢ä¸ç”¨åˆ¤æ–­æ•°ç»„çš„é•¿åº¦æ˜¯å•æ•°è¿˜æ˜¯åŒæ•°ï¼Œå› ä¸ºï¼Œ/2æ“ä½œå¾ˆå¥½æ»´è§£å†³äº†è¿™ä¸ªé—®é¢˜ã€‚
 	 */
 	private static void SwapArray(int[] arr) {
 		// TODO Auto-generated method stub

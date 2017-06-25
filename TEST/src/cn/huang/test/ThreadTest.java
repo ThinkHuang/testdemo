@@ -1,4 +1,4 @@
-package cn.huang.test;
+ï»¿package cn.huang.test;
 
 import org.junit.Test;
 
@@ -14,8 +14,8 @@ public class ThreadTest extends Thread{
 	private static void test2() {
 		// TODO Auto-generated method stub
 		/**
-		 * ×¢Òâ£ºÕâÀïÖ»ÊÇ²úÉúÁËÁ½¸öÏß³Ì£¨ÆäËûÏß³ÌÔİÊ±²»¼Æ£©£¬Ò»¸öÖ÷Ïß³Ì£¬Ò»¸ö´ÎÏß³Ì¡£
-		 * ÓĞÒ»µãºÜÇÉÃîµÄµØ·½¾ÍÊÇ£¬½«Ïß³ÌÒªÍê³ÉµÄÈÎÎñ·â×°ÔÚÁË¡°×ÊÔ´Àà¡±£¨Business£©µÄ·½·¨ÖĞ£¬¶øÍ¨¹ıÏß³ÌµÄrun·½·¨À´ÊµÏÖÈÎÎñ¡£
+		 * æ³¨æ„ï¼šè¿™é‡Œåªæ˜¯äº§ç”Ÿäº†ä¸¤ä¸ªçº¿ç¨‹ï¼ˆå…¶ä»–çº¿ç¨‹æš‚æ—¶ä¸è®¡ï¼‰ï¼Œä¸€ä¸ªä¸»çº¿ç¨‹ï¼Œä¸€ä¸ªæ¬¡çº¿ç¨‹ã€‚
+		 * æœ‰ä¸€ç‚¹å¾ˆå·§å¦™çš„åœ°æ–¹å°±æ˜¯ï¼Œå°†çº¿ç¨‹è¦å®Œæˆçš„ä»»åŠ¡å°è£…åœ¨äº†â€œèµ„æºç±»â€ï¼ˆBusinessï¼‰çš„æ–¹æ³•ä¸­ï¼Œè€Œé€šè¿‡çº¿ç¨‹çš„runæ–¹æ³•æ¥å®ç°ä»»åŠ¡ã€‚
 		 */
 		final Business business = new Business();
 			new Thread(new Runnable(){
@@ -70,7 +70,7 @@ public class ThreadTest extends Thread{
 }
 
 class Business {
-//	boolean bShouldSub = true;//ÕâÀïÏàµ±ÓÚ¶¨ÒåÁË¿ØÖÆ¸ÃË­Ö´ĞĞµÄÒ»¸öĞÅºÅµÆ 
+//	boolean bShouldSub = true;//è¿™é‡Œç›¸å½“äºå®šä¹‰äº†æ§åˆ¶è¯¥è°æ‰§è¡Œçš„ä¸€ä¸ªä¿¡å·ç¯ 
 //	public synchronized void MainThread(int i) 
 //	{ 
 //		if(bShouldSub) 
