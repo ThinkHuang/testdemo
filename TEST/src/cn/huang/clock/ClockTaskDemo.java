@@ -31,7 +31,7 @@ import org.quartz.impl.StdSchedulerFactory;
 public class ClockTaskDemo {
 	
 	/**
-	 * 第一种，利用thread来开启一个线程，进行不断循环，知道被唤醒
+	 * 第一种，利用thread来开启一个线程，进行不断循环，种钡降被唤醒
 	 * 缺点：太消耗资源，且容易发生内存泄漏，不提倡使用,另外不够精确，当服务器的服务的越久，误差会越来越大
 	 */
 	@Test
