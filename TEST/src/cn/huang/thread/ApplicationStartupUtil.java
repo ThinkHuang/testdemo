@@ -6,8 +6,10 @@ package com.huang.demo;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadPoolExecutor;
+
 
 /**
  * @author dell
@@ -19,11 +21,11 @@ public class ApplicationStartupUtil {
 	
 	private static CountDownLatch _latch;
 	
-	private final ApplicationStartupUtil instance = new ApplicationStartupUtil();
-	
-	public ApplicationStartupUtil getInstance(){
-		return instance;
-	}
+//	private final ApplicationStartupUtil instance = new ApplicationStartupUtil();
+//	
+//	public ApplicationStartupUtil getInstance(){
+//		return instance;
+//	}
 	
 	
 	public static boolean checkIsExecute(){
@@ -33,7 +35,7 @@ public class ApplicationStartupUtil {
 		list.add(new DatabaseHealthChecker(_latch, "DatabaseHealthChecker"));
 		list.add(new NetworkHealthChecker(_latch, "NetworkHealthChecker"));
 		
-		Executor executor = Executors.newFixedThreadPool(list.size());
+		ExecutorService executor = Executors.newFixedThreadPool(list.size());
 		
 		for (final BaseHealthChecker v : list) {
 			executor.execute(v);
@@ -41,6 +43,7 @@ public class ApplicationStartupUtil {
 		
 		try {
 			_latch.await();
+			executor.shutdownNow();
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
