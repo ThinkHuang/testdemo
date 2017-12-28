@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.huang.demo;
+package com.huang.other;
 
 import java.lang.reflect.Field;
 import java.util.HashMap;
