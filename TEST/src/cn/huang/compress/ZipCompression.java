@@ -10,12 +10,21 @@ import java.util.zip.ZipOutputStream;
 
 /**
  * 利用Java实现文件的压缩
- * @author dell
+ * @author huangyejun
  *
  */
 public class ZipCompression {
-
-	private int layer = 1;//定义压缩层次
+	
+	/*
+     * 初始化临时目录
+     */
+    static {
+	try {
+	    XBRL_DECOMPRESS_TEMPORARY_DIR = System.getProperty("java.io.tmpdir");
+	} catch (Exception e) {
+	    log.error("获取操作系统临时目录失败：_" + e.getMessage(), e);
+	}
+    }
 	
 	public ZipCompression(){
 		
@@ -28,7 +37,7 @@ public class ZipCompression {
 		obj.docCompress("c:\\test\\plsqldeveloper_sn.zip", new File("c:\\test\\compression"));
 	}
 	
-	 /**
+	  /**
      * 场景：适合将指定目录下的所有文件压缩成一个ZIP文件，目录中不包含其他目录
      * 
      * @param sourceFilePath 待压缩的文件路径
@@ -97,44 +106,52 @@ public class ZipCompression {
 	    } catch (IOException e) {
 		log.error("压缩输出流关闭失败：_" + e.getMessage(), e);
 	    }
+	    try {
+		if (null != fis) {
+		    fis.close();
+		}
+	    } catch (IOException e) {
+		log.error("文件输入流关闭失败：_" + e.getMessage(), e);
+	    }
+	    try {
+		if (null != fos) {
+		    fos.close();
+		}
+	    } catch (IOException e) {
+		log.error("文件输出流关闭失败：_" + e.getMessage(), e);
+	    }
 	}
 	return flag;
     }
 
     /**
-     * 场景：不管是压缩单个文件还是文件夹，都能压缩成指定的名称的ZIP文件 
-     * 存在bug，会覆盖掉之前的文件
+     * 压缩文件
      * 
-     * @param sourceFilePath 压缩后的文件路径，绝对路径
-     * @param zipFilePath 压缩文件路径，绝对路径
-     * @param fName 压缩文件名称
+     * @param srcfile 压缩源文件
+     * @param targetFile 压缩目标文件
+     * @param baseDir 压缩基点
      */
-    public static void docCompress(String sourceFilePath, String zipFilePath, String fName) {
+    public static void zipFiles(File srcfile, File targetFile, String baseDir) {
+	// 定义监视器
 	StopWatch watch = new StopWatch();
-	watch.start("document compress <<<<<<");
-	File zipFile = new File(zipFilePath);
+	watch.start("zip file");
+	// 变量定义
 	ZipOutputStream zos = null;
-	BufferedOutputStream bos = null;
 	try {
-	    String fileName = zipFilePath + File.separator + fName + XBRL_ZIP_SUFFIX;
-	    zos = new ZipOutputStream(new FileOutputStream(fileName));
-	    bos = new BufferedOutputStream(zos);
-	    compressToZip(zos, zipFile, fName, bos);
-	    watch.stop();
-	    log.info("stop document compress <<<<<< StopWatch\n" + watch.prettyPrint());
-	} catch (Exception e) {
-	    log.error("压缩文件出现异常：_" + e.getMessage(), e);
-	} finally {
-	    /*
-	     * 关闭资源
-	     */
-	    try {
-		if (bos != null) {
-		    bos.close();
+	    zos = new ZipOutputStream(new FileOutputStream(targetFile));
+	    if (srcfile.isFile()) {
+		zipFile(srcfile, zos, baseDir, false);
+	    } else {
+		File[] fileList = srcfile.listFiles();
+		for (File file : fileList) {
+		    compress(file, zos, baseDir);
 		}
-	    } catch (IOException e) {
-		log.error("缓冲输出流关闭失败：_" + e.getMessage(), e);
 	    }
+	    watch.stop();
+	    log.info("文件压缩完毕  StopWatch:\n" + watch.prettyPrint());
+	} catch (Exception e) {
+	    log.error("文件压缩失败：_" + e.getMessage(), e);
+	} finally {
 	    try {
 		if (zos != null) {
 		    zos.close();
@@ -146,86 +163,78 @@ public class ZipCompression {
     }
 
     /**
-     * @param zos 压缩流
-     * @param file 压缩的文件
-     * @param base zip压缩进入点
-     * @param bos 缓冲输出流
-     * @throws Exception
+     * 压缩文件夹里的文件
+     * 
+     * @param file 源文件
+     * @param zos 压缩输出流
+     * @param basedir 压缩基点，如果不存在默认以文件名称为压缩基点
      */
-    private static void compressToZip(ZipOutputStream zos, File file, String base, BufferedOutputStream bos) {
-	// 由于待要压缩的文件不存在目录，所以基本会进入到这里
-	if (file.isFile()) {
-	    compressFile(zos, file, base, bos);
+    private static void compress(File file, ZipOutputStream zos, String basedir) {
+	if (file.isDirectory()) {
+	    zipDirectory(file, zos, basedir);
 	} else {
-	    compressDirectory(zos, file, base, bos);
+	    zipFile(file, zos, basedir, false);
 	}
-    }
-    
-    /**
-     * 压缩目录
-     * @param zos
-     * @param file
-     * @param base
-     * @param bos
-     */
-    private static void compressDirectory(ZipOutputStream zos, File file, String base, BufferedOutputStream bos) {
-	File[] flieList = file.listFiles();
-	    if (flieList.length == 0) {
-		// 创建zip压缩进入点base
-		try {
-		    zos.putNextEntry(new ZipEntry(base + File.separator));
-		} catch (IOException e) {
-		    log.error("写入压缩输出流失败：_" + e.getMessage(), e);
-		    // throw new BusinessException("");TODO 抛出业务异常
-		}
-		log.debug(base + File.separator);
-	    }
-	    for (int i = 0; i < flieList.length; i++) {
-		compressToZip(zos, flieList[i], flieList[i].getPath(), bos); // 递归遍历子文件夹
-	    }
-	    log.debug("第" + layer + "次递归");
-	    layer++;
     }
 
     /**
-     * 压缩单一文件
-     * @param zos
-     * @param file
-     * @param base
-     * @param bos
+     * 压缩单个文件
+     * 
+     * @param srcFile 源文件
+     * @param zos 压缩输出流
+     * @param baseDir 压缩基点
+     * @param multiDirectory 是否需要多层级目录
      */
-    private static void compressFile(ZipOutputStream zos, File file, String base, BufferedOutputStream bos) {
+    public static void zipFile(File srcFile, ZipOutputStream zos, String baseDir, boolean multiDirectory) {
+	// 判断文件是否存在
+	if (!srcFile.exists())
+	    return;
+
+	byte[] buffer = new byte[BUFFER_SIZE];
 	FileInputStream fis = null;
-	BufferedInputStream bis = null;
+	String baseEntry = EMPTY_STR;
 	try {
-	    zos.putNextEntry(new ZipEntry(base)); // 创建zip压缩进入点base
-	    fis = new FileInputStream(file);
-	    bis = new BufferedInputStream(fis);
-	    int buffer;
-	    while ((buffer = bis.read()) != -1) {
-		// 将字节流写入当前zip目录
-		bos.write(buffer);
+	    int length;
+	    fis = new FileInputStream(srcFile);
+	    // 是否启用多层目录
+	    if (multiDirectory) {
+		baseEntry = baseDir + File.separator + srcFile.getName();
+	    } else {
+		baseEntry = srcFile.getName();
+	    }
+	    zos.putNextEntry(new ZipEntry(baseEntry));
+	    while ((length = fis.read(buffer)) > 0) {
+		zos.write(buffer, 0, length);
 	    }
 	} catch (Exception e) {
-	    log.error("压缩文件出现异常：_" + e.getMessage(), e);
+	    log.error("压缩单个文件失败：_" + e.getMessage(), e);
 	} finally {
-	    /**
-	     * 关闭资源
-	     */
-	    if (fis != null) {
-		try {
+	    try {
+		if (fis != null) {
 		    fis.close();
-		} catch (IOException e) {
-		    log.error("文件输入流关闭失败：_" + e.getMessage(), e);
 		}
+	    } catch (IOException e) {
+		log.error("文件输入流关闭失败：_" + e.getMessage(), e);
 	    }
-	    if (bos != null) {
-		try {
-		    bos.close();
-		} catch (IOException e) {
-		    log.error("缓冲输出流关闭失败：_" + e.getMessage(), e);
-		}
-	    }
+	}
+    }
+
+    /**
+     * 压缩文件夹
+     * 
+     * @param directory 文件夹
+     * @param zos
+     * @param baseDir
+     */
+    public static void zipDirectory(File directory, ZipOutputStream zos, String baseDir) {
+	// 判断文件是否存在
+	if (!directory.exists())
+	    return;
+
+	File[] files = directory.listFiles();
+	for (File file : files) {
+	    /* 递归 */
+	    compress(file, zos, baseDir + directory.getName() + File.separator);
 	}
     }
 }
