@@ -4,17 +4,10 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.RandomAccessFile;
-import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
 import java.nio.IntBuffer;
 import java.nio.channels.FileChannel;
-import java.nio.channels.SelectionKey;
-import java.nio.channels.Selector;
-import java.nio.channels.ServerSocketChannel;
-import java.nio.channels.SocketChannel;
 import java.security.SecureRandom;
-import java.util.Iterator;
-import java.util.Set;
 
 import org.junit.Test;
 
@@ -106,11 +99,15 @@ public class FileChannelTest
     public void NIOTest2()
     {
         FileInputStream fis = null;
+        FileChannel channel = null;
         try
         {
             fis = new FileInputStream("src/cn/huang/nio/nio.txt");
-            FileChannel channel = fis.getChannel();
+            channel = fis.getChannel();
             ByteBuffer buffer = ByteBuffer.allocate(512);
+            
+            System.out.println("通道数据大小:" + channel.size());
+            channel.position(20);
             // 将通道数据读取到缓冲区
             channel.read(buffer);
             
@@ -133,10 +130,8 @@ public class FileChannelTest
         {
             try
             {
-                if (null != fis)
-                {
-                    fis.close();
-                }
+                fis.close();
+                channel.close();
             }
             catch (IOException e)
             {
@@ -152,10 +147,11 @@ public class FileChannelTest
     public void NIOTest3()
     {
         FileOutputStream fos = null;
+        FileChannel channel = null;
         try
         {
             fos = new FileOutputStream("src/cn/huang/nio/toFile.txt");
-            FileChannel channel = fos.getChannel();
+            channel = fos.getChannel();
             
             ByteBuffer buffer = ByteBuffer.allocate(1024);
             String str = "hello world";
@@ -166,7 +162,6 @@ public class FileChannelTest
             buffer.flip();
             
             channel.write(buffer);
-            System.out.println("文件写入完成");
         }
         catch (IOException e)
         {
@@ -176,10 +171,8 @@ public class FileChannelTest
         {
             try
             {
-                if (null != fos)
-                {
-                    fos.close();
-                }
+                fos.close();
+                channel.close();
             }
             catch (IOException e)
             {
@@ -188,52 +181,63 @@ public class FileChannelTest
         }
     }
     
-    /**
-     * socket nio
-     * 服务端socket和客户端socket都在同一个线程中
-     * @throws IOException
-     */
     @Test
-    public void NIOTest4() throws IOException
+    public void NIOTest4()
     {
-        ByteBuffer buffer = ByteBuffer.allocate(1024);
-        Selector selector = Selector.open();
-        ServerSocketChannel channel = ServerSocketChannel.open();
-        channel.configureBlocking(false);// 设置为非阻塞模式
-        channel.bind(new InetSocketAddress(8080));// 绑定服务端口到8080上
-        channel.register(selector, SelectionKey.OP_ACCEPT);// 注册监听accept监听事件
-        while (true)
+        RandomAccessFile aFile = null;
+        FileChannel channel = null;
+        try
         {
-            Set<SelectionKey> selectedKey = selector.selectedKeys();
-            Iterator<SelectionKey> it = selectedKey.iterator();
-            while (it.hasNext())
+            aFile = new RandomAccessFile("src/cn/huang/nio/nio.txt", "rw");
+            channel = aFile.getChannel();
+           //截取文件
+            channel.truncate(20);//会删除掉源文件的内容
+            // 读取channel中的文件大小
+            System.out.println(channel.size());
+            // 从指定的位置读取文件
+            ByteBuffer buffer = ByteBuffer.allocate(1024);
+            //读模式时，position设置为文件末尾以后
+            channel.position(40);
+            int bytesRead = channel.read(buffer);
+            System.out.println(bytesRead);
+            // 切换读写模式
+            buffer.flip();
+            
+            byte[] bytes = new byte[buffer.capacity()];
+            int count = 0;
+            while (buffer.hasRemaining())
             {
-                SelectionKey key = it.next();
-                if ((key.readyOps() & SelectionKey.OP_ACCEPT) == SelectionKey.OP_ACCEPT)
-                {//服务端的事件监听
-                    ServerSocketChannel ssc = (ServerSocketChannel)key.channel();
-                    SocketChannel sc = ssc.accept();// 接受服务端的请求
-                    sc.configureBlocking(false);
-                    sc.register(selector, SelectionKey.OP_READ);
-                    it.remove();
-                }
-                else if ((key.readyOps() & SelectionKey.OP_READ) == SelectionKey.OP_READ)
-                {//客户端的事件处理
-                    SocketChannel sc = (SocketChannel)key.channel();
-                    while (true)
-                    {
-                        buffer.clear();
-                        int n = sc.read(buffer);// 读取数据
-                        if (n <= 0)
-                        {
-                            break;
-                        }
-                        buffer.flip();
-                    }
-                    it.remove();
-                }
+                bytes[count] = buffer.get();
+                count++;
+            }
+            System.out.println(new String(bytes, "utf-8"));
+            
+            buffer.compact();//清除掉已经读取的数据
+            
+            //当为写模式时，设置position在文件末尾以后，如果要读入的话，需要将channel的position复原
+            String str = "只是为了测试position的写模式";
+            buffer.put(str.getBytes("utf-8"));
+            
+            buffer.flip();
+            //channel.position();
+            channel.write(buffer);//往源文件中附加数据，相当于append
+            
+            channel.force(true);//每次都强制让缓冲区的内容刷新到磁盘文件中
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            try
+            {
+                channel.close();
+            }
+            catch (IOException e)
+            {
+                e.printStackTrace();
             }
         }
-        
     }
 }
