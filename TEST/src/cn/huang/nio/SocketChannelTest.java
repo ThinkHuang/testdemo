@@ -9,30 +9,30 @@ public class SocketChannelTest
 {
     public void test() throws IOException
     {
-        // ´ò¿ªÒ»¸öSocketChannelÁ¬½Ó
+        // æ‰“å¼€ä¸€ä¸ªSocketChannelè¿æ¥
         SocketChannel channel = SocketChannel.open();
-        // ÒÔ·Ç×èÈûÄ£Ê½ÔËĞĞ
+        // ä»¥éé˜»å¡æ¨¡å¼è¿è¡Œ
         channel.configureBlocking(false);
         channel.connect(new InetSocketAddress("http://jenkov.com", 80));
         
-        // ¹Ø±ÕÒ»¸öSocketChannelÁ¬½Ó
+        // å…³é—­ä¸€ä¸ªSocketChannelè¿æ¥
         channel.close();
         
-        // ´ÓÒ»¸öSocketChannelÁ¬½ÓÖĞ¶ÁÈ¡Êı¾İ
+        // ä»ä¸€ä¸ªSocketChannelè¿æ¥ä¸­è¯»å–æ•°æ®
         ByteBuffer buffer = ByteBuffer.allocate(1024);
         channel.read(buffer);
         
-        // ÏòSocketChannelÖĞĞ´ÈëÊı¾İ
+        // å‘SocketChannelä¸­å†™å…¥æ•°æ®
         String newData = "New String to write to file..." + System.currentTimeMillis();
         
         ByteBuffer buf = ByteBuffer.allocate(1024);
-        buf.clear();// ½«positionÖÃÎª0
+        buf.clear();// å°†positionç½®ä¸º0
         buf.put(newData.getBytes());
         
-        // ÇĞ»»¶ÁĞ´Ä£Ê½
+        // åˆ‡æ¢è¯»å†™æ¨¡å¼
         buf.flip();
         
-        //ÔÚÒì²½Ä£Ê½ÏÂ£¬Èç¹û½øĞĞConnectÊ±£¬ĞèÒªÊ¹ÓÃÏÂÃæµÄfinishConnect·½·¨Ğ£ÑéÁ¬½ÓÊÇ·ñÍê³É
+        //åœ¨å¼‚æ­¥æ¨¡å¼ä¸‹ï¼Œå¦‚æœè¿›è¡ŒConnectæ—¶ï¼Œéœ€è¦ä½¿ç”¨ä¸‹é¢çš„finishConnectæ–¹æ³•æ ¡éªŒè¿æ¥æ˜¯å¦å®Œæˆ
         channel.finishConnect();
         
         while (buf.hasRemaining())
