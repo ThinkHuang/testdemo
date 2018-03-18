@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Log4j:configuration SYSTEM "Log4j.dtd">
+<Log4j:configuration>
+
+<appender name="FILE" class="org.apache.Log4j.FileAppender">
+
+   <param name="file" value="${log}/log.out"/>
+   <param name="immediateFlush" value="true"/>
+   <param name="threshold" value="debug"/>
+   <param name="append" value="false"/>
+
+   <layout class="org.apache.Log4j.PatternLayout">
+      <param name="conversionPattern" value="%m%n"/>
+   </layout>
+</appender>
+
+<logger name="Log4j.rootLogger" additivity="false">
+   <level value="DEBUG"/>
+   <appender-ref ref="FILE"/>
+</logger>
+
+</Log4j:configuration>
