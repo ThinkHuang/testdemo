@@ -1,4 +1,4 @@
-package cn.huang.SerializableTest;
+package cn.huang.serializable;
 
 import java.io.Serializable;
 
