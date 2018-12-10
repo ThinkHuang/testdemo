@@ -1,4 +1,4 @@
-﻿package cn.huang.filetest;
+﻿package cn.huang.file;
 
 import java.io.FileInputStream;
 import java.io.IOException;

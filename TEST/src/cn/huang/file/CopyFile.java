@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.huang.demo;
+package cn.huang.file;
 
 import java.io.File;
 import java.io.FileInputStream;
