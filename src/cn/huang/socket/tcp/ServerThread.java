@@ -24,13 +24,18 @@ public class ServerThread implements Runnable
     @Override
     public void run()
     {
-        try
-        {
             // 获取Socket的输出流，用来向客户端发送数据
-            PrintStream out = new PrintStream(client.getOutputStream());
-            // 获取Socket的输入流，获取socket的输入信息
-            execute(client);
-        }
+            try
+            {
+                new PrintStream(client.getOutputStream());
+                // 获取Socket的输入流，获取socket的输入信息
+                execute(client);
+            }
+            catch (IOException e)
+            {
+                e.printStackTrace();
+            }
+        
     }
     
     public static void execute(Socket client)
@@ -61,7 +66,14 @@ public class ServerThread implements Runnable
         }
         catch (IOException e)
         {
-            client.close();
+            try
+            {
+                client.close();
+            }
+            catch (IOException e1)
+            {
+                e1.printStackTrace();
+            }
         }
     }
 }

@@ -30,4 +30,10 @@ public class NetworkHealthChecker extends BaseHealthChecker {
 		System.out.println(this.getServiceName() + " is UP");
 	}
 
+    @Override
+    public void run()
+    {
+        
+    }
+
 }

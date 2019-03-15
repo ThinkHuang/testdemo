@@ -105,7 +105,6 @@ public class RarCompression {
 	    public void getAllFileNames(){
 	    	 File sourceRar = new File("c:\\test\\webservices-api.rar");
 			  Archive archive = null;  
-			  int count = 0;
 		        try {  
 		            archive = new Archive(sourceRar);  
 		            FileHeader fh = archive.nextFileHeader();  
@@ -117,13 +116,10 @@ public class RarCompression {
 		                	compressFileName = fh.getFileNameString().trim();  
 		                }
 		                if(compressFileName.endsWith("html") || compressFileName.endsWith("excel") || compressFileName.endsWith("txt"))
-		                	count++;
-		                System.out.println(compressFileName);
 		                fh = archive.nextFileHeader();
 		            }
-		            System.out.println();
 		        }catch(Exception e){
-		        	//TODO: Ignore
+		        	e.printStackTrace();
 		        }
 	    }
 }

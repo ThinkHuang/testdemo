@@ -1,18 +1,45 @@
 package thread;
 
-public abstract class BaseHealthChecker
+import java.util.concurrent.CountDownLatch;
+
+public abstract class BaseHealthChecker implements Runnable
 {
     
-    private CountDownLatch _latch;
-    private String _serviceName;
+    private CountDownLatch latch;
+    
+    private String serviceName;
     
     public BaseHealthChecker(CountDownLatch _latch, String _serviceName)
     {
-        this._latch = _latch;
-        this._serviceName = _serviceName;
+        this.latch = _latch;
+        this.serviceName = _serviceName;
     }
     
-    protected abstract void executeService();
+    public boolean isServiceUp()
+    {
+        return false;
+    }
     
+    public CountDownLatch getLatch()
+    {
+        return latch;
+    }
+    
+    public void setLatch(CountDownLatch latch)
+    {
+        this.latch = latch;
+    }
+    
+    public String getServiceName()
+    {
+        return serviceName;
+    }
+    
+    public void setServiceName(String serviceName)
+    {
+        this.serviceName = serviceName;
+    }
+
+    public abstract void executeService();
     
 }

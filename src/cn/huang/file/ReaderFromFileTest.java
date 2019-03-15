@@ -16,11 +16,10 @@ public class ReaderFromFileTest {
 		// TODO Auto-generated method stub
 		File file = new File("f:\\test.txt");
 		
-		FileInputStream isr = new FileInputStream(file);
 		
 		byte[] buf = new byte[1024];
-		int len = isr.read(buf);
-		//boolean isChinese = false;
+		@SuppressWarnings("resource")
+        int len = new FileInputStream(file).read(buf);
 	    String str = new String(buf, 0 ,len, "GB2312");
 			   
 		String[] chips =  str.split(",");

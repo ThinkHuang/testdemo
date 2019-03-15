@@ -12,7 +12,7 @@ public class DeleteFileOrDirectory {
      * 删除空目录
      * @param dir 将要删除的目录路径
      */
-    private static void doDeleteEmptyDir(String dir) {
+    public static void doDeleteEmptyDir(String dir) {
         boolean success = (new File(dir)).delete();
         if (success) {
             System.out.println("Successfully deleted empty directory: " + dir);
