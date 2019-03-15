@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.huang.demo;
+package json;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;

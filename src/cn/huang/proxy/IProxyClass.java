@@ -1,4 +1,4 @@
-package org.huang.proxy;
+package proxy;
 
 public interface IProxyClass
 {

@@ -1,4 +1,4 @@
-package cn.huang.serializable;
+package serializable;
 
 import java.io.Serializable;
 

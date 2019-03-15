@@ -1,4 +1,4 @@
-package cn.huang.socket.tcp;
+package socket.tcp;
 
 import java.io.IOException;
 import java.net.ServerSocket;

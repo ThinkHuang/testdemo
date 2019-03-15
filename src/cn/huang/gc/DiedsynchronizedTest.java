@@ -1,4 +1,4 @@
-package cn.huang.gc;
+package gc;
 
 public class DiedsynchronizedTest
 {

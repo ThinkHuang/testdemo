@@ -1,4 +1,4 @@
-﻿package cn.huang.xml;
+﻿package xml;
 
 import java.io.File;
 import java.io.FileInputStream;

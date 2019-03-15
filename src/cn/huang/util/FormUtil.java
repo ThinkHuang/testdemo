@@ -1,4 +1,4 @@
-package com.huang.util;
+package util;
 
 import java.text.MessageFormat;
 import java.util.Arrays;

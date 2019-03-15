@@ -1,4 +1,4 @@
-package cn.huang.socket.messagevote;
+package socket.messagevote;
 
 /**
  * 消息构建

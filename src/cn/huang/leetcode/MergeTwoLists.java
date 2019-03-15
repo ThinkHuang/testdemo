@@ -1,4 +1,4 @@
-package cn.huang.leetcode;
+package leetcode;
 
 import org.junit.Test;
 

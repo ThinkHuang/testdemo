@@ -1,4 +1,4 @@
-package cn.huang.jmx;
+package jmx;
 
 import javax.management.MBeanServer;
 import javax.management.MBeanServerFactory;

@@ -1,4 +1,4 @@
-package com.huang.util;
+package util;
 
 import java.beans.PropertyDescriptor;
 import java.lang.reflect.InvocationTargetException;

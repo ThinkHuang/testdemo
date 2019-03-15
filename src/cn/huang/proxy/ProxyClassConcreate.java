@@ -1,4 +1,4 @@
-package org.huang.proxy;
+package proxy;
 
 /**
  * 使用CGLIB完成动态代理

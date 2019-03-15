@@ -1,4 +1,4 @@
-package cn.huang.processor;
+package processor;
 
 import java.util.EnumSet;
 

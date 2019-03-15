@@ -1,4 +1,4 @@
-package com.huang.util;
+package util;
 import java.io.File;
 import org.apache.tools.ant.BuildException;
 import org.apache.tools.ant.Project;

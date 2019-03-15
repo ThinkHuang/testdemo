@@ -1,4 +1,4 @@
-package cn.huang.processor.test;
+package processor.test;
 
 /**
  * 测试类

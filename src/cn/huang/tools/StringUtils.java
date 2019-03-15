@@ -1,4 +1,4 @@
-package cn.huang.tools;
+package tools;
 
 public class StringUtils {
 	private static String str;

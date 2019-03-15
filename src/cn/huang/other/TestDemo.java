@@ -1,4 +1,4 @@
-﻿package cn.huang.other;
+﻿package other;
 
 public class TestDemo {
 	private static int NUMBER = 8;

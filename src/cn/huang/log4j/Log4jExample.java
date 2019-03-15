@@ -1,4 +1,4 @@
-package cn.huang.log4j;
+package log4j;
 
 import java.net.URL;
 

@@ -1,4 +1,4 @@
-package cn.huang.io;
+package io;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;

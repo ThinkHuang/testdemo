@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.huang.demo;
+package other;
 
 /**
  * <p>Project:test

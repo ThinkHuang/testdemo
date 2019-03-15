@@ -1,7 +1,7 @@
 ﻿/**
  * 
  */
-package com.huang.leetcode;
+package leetcode;
 
 import org.junit.Test;
 

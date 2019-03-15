@@ -1,4 +1,4 @@
-package com.huang.util;
+package util;
 
 import java.security.Key;
 import java.security.SecureRandom;

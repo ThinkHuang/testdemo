@@ -1,4 +1,4 @@
-package com.huang.util;
+package util;
 
 /**
  * 系统常量类

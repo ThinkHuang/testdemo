@@ -1,4 +1,4 @@
-﻿package cn.huang.other;
+﻿package other;
 
 public class Node {
 	public int value;

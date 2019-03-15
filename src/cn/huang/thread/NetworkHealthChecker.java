@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.huang.demo;
+package thread;
 
 import java.util.concurrent.CountDownLatch;
 

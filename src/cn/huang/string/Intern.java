@@ -1,4 +1,4 @@
-package cn.huang.string;
+package string;
 
 public class Intern
 {

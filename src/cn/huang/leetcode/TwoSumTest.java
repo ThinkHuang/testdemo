@@ -1,4 +1,4 @@
-package cn.huang.leetcode;
+package leetcode;
 
 import org.junit.Test;
 
@@ -26,7 +26,7 @@ public class TwoSumTest {
 	        int[] vacariousness = nums;
 	        first:for(int i=0; i<nums.length; i++){
 	        	int temp = target - nums[i];
-	            //if(temp <= 0) continue;//ÅÅ³ýµô´óÓÚ»òµÈÓÚÄ¿±êµÄÊý×éÔªËØ,ÅÅ³ýÁË¸ºÊýµÄ¿ÉÄÜ
+	            //if(temp <= 0) continue;//ï¿½Å³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú»ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½,ï¿½Å³ï¿½ï¿½Ë¸ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½
 	            for(int j=0; j<vacariousness.length; j++){
 	                if(i != j && temp == vacariousness[j]){
 	                    result[0] = j;

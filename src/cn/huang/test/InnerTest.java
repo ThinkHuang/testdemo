@@ -1,4 +1,4 @@
-package cn.huang.test;
+package test;
 
 public class InnerTest {
 	private Inner in;

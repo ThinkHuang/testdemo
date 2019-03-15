@@ -1,4 +1,4 @@
-package com.huang.demo;
+package compress;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -92,7 +92,7 @@ public class JWebServicesForExchange {
 	        {
 	            Service service = new Service("https://192.168.72.54/ews/Exchange.asmx", "huangyejun@szscxx.cn", "Szscxx_123456");
 
-	            IsEqualTo restriction = new IsEqualTo(MessagePropertyPath.IS_READ, false);//ÊÇ·ñÒÑ¶ÁÃ»ÓÐÓÃ£¬¸Ã²Ù×÷Ö»Õë¶ÔÎïÀí²Ù×÷£¬²»ÄÜÕë¶ÔÈí¼þ²Ù×÷
+	            IsEqualTo restriction = new IsEqualTo(MessagePropertyPath.IS_READ, false);//ï¿½Ç·ï¿½ï¿½Ñ¶ï¿½Ã»ï¿½ï¿½ï¿½Ã£ï¿½ï¿½Ã²ï¿½ï¿½ï¿½Ö»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	            FindItemResponse response = service.findItem(StandardFolder.INBOX, MessagePropertyPath.getAllPropertyPaths(), restriction);
 

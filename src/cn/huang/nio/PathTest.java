@@ -1,4 +1,4 @@
-package cn.huang.nio;
+package nio;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;

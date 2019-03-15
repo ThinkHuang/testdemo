@@ -1,4 +1,4 @@
-package com.huang.util;
+package util;
 import java.util.Properties;
 /**
  * 邮件实体类

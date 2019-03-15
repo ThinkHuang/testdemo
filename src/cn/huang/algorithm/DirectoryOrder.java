@@ -1,4 +1,4 @@
-package cn.huang.algorithm;
+package algorithm;
 
 import java.util.Arrays;
 

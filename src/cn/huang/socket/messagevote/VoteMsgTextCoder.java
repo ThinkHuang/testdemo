@@ -1,4 +1,4 @@
-package cn.huang.socket.messagevote;
+package socket.messagevote;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-﻿package cn.huang.test;
+﻿package test;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,6 +30,6 @@ public class ClassLoaderTest {
 		};
 		Object obj = myLoader.loadClass("cn.huang.test.ClassLoaderTest").newInstance();
 		System.out.println(obj.getClass());
-		System.out.println(obj instanceof cn.huang.test.ClassLoaderTest);
+		System.out.println(obj instanceof test.ClassLoaderTest);
 	}
 }

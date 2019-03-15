@@ -1,4 +1,4 @@
-package cn.huang.socket.udp;
+package socket.udp;
 
 import java.io.IOException;
 import java.io.InterruptedIOException;

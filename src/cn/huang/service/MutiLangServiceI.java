@@ -1,6 +1,6 @@
-package com.huang.service;
+package service;
 
-import com.huang.entity.MutiLangEntity;
+import entity.MutiLangEntity;
 
 
 public interface MutiLangServiceI{

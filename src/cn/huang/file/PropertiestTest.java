@@ -1,4 +1,4 @@
-﻿package cn.huang.file;
+﻿package file;
 
 import java.io.BufferedOutputStream;
 import java.io.FileOutputStream;

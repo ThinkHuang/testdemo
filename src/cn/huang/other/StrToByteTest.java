@@ -1,4 +1,4 @@
-﻿package cn.huang.other;
+﻿package other;
 
 import java.io.IOException;
 

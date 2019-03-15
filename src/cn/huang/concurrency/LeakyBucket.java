@@ -1,4 +1,4 @@
-package cn.huang.concurrency;
+package concurrency;
 /**
  * 漏桶算法
  * @author huangyejun

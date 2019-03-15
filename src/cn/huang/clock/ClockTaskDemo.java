@@ -1,4 +1,4 @@
-﻿package cn.huang.clock;
+﻿package clock;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;

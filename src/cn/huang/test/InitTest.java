@@ -1,20 +1,20 @@
-package cn.huang.test;
+package test;
 
 public class InitTest {  
     public static int k = 0;  
-    public static TestVar t1 = new TestVar("t1");  
-    public static TestVar t2 = new TestVar("t2");  
+    public static InitTest t1 = new InitTest("t1");  
+    public static InitTest t2 = new InitTest("t2");  
     public static int i = print("i");  
     public static int n = 99;  
     public int j = print("j");  
     {  
-        print("¹¹Ôì");  
+        print("ï¿½ï¿½ï¿½ï¿½");  
     }  
     static {  
-        print("¾²Ì¬");  
+        print("ï¿½ï¿½Ì¬");  
     }  
   
-    public TestVar(String str) {  
+    public InitTest(String str) {  
         System.out.println((++k) + ":" + str + "    i=" + i + " n=" + n);  
         ++i;  
         ++n;  
@@ -29,4 +29,5 @@ public class InitTest {
     public static void main(String[] args) {  
         InitTest t = new InitTest ("init");  
     }  
+    
 }  

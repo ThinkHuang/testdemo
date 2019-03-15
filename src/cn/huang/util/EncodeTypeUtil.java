@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.huang;
+package util;
 
 /**
  * <p>Project:test

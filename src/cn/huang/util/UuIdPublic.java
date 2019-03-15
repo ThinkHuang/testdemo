@@ -1,4 +1,4 @@
-package com.huang.util;
+package util;
 
 import java.util.Date;
 

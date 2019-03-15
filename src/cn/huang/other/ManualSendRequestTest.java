@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.jeecgframework.web.mdc.test;
+package other;
 
 import java.io.BufferedReader;
 import java.io.IOException;

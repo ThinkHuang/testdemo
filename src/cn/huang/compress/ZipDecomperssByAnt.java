@@ -1,4 +1,4 @@
-﻿package com.huang.demo;
+﻿package compress;
 
 import java.io.File;
 import java.io.FileOutputStream;

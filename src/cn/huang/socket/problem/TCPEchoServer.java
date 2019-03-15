@@ -1,4 +1,4 @@
-package cn.huang.socket.problem;
+package socket.problem;
 
 import java.io.IOException;
 import java.io.InputStream;

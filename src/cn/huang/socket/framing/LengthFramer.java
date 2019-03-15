@@ -1,4 +1,4 @@
-package cn.huang.socket.framing;
+package socket.framing;
 
 import java.io.DataInputStream;
 import java.io.EOFException;

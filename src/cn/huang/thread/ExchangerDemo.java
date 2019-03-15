@@ -1,4 +1,4 @@
-package cn.huang.thread;
+package thread;
 
 import java.util.ArrayList;
 import java.util.List;

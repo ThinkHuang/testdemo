@@ -1,4 +1,4 @@
-package com.huang.util;
+package util;
 
 /**
  * 

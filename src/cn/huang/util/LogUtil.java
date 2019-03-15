@@ -1,4 +1,4 @@
-package com.huang.util;
+package util;
 
 import java.io.BufferedReader;
 import java.io.PrintWriter;

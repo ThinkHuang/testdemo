@@ -1,4 +1,4 @@
-package cn.huang.jmx;
+package jmx;
 
 public interface HelloWorldMBean
 {

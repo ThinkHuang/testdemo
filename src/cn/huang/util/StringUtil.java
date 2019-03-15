@@ -1,4 +1,4 @@
-package com.huang.util;
+package util;
 
 import java.beans.XMLDecoder;
 import java.io.BufferedInputStream;
@@ -21,8 +21,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang.RandomStringUtils;
 import org.apache.commons.lang.StringUtils;
@@ -1915,35 +1913,6 @@ public class StringUtil {
 		Matcher matcher = pattern.matcher(checkName);
 
 		return matcher.matches();
-	}
-
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public static String content(HttpServletRequest request, String column) {
-		Map properties = request.getParameterMap();
-		Map returnMap = new HashMap<Object, Object>();
-		Iterator<?> entries = properties.entrySet().iterator();
-		Map.Entry entry;
-		String name = "";
-		String value = "";
-		while (entries.hasNext()) {
-			entry = (Map.Entry) entries.next();
-			name = (String) entry.getKey();
-			Object valueObj = entry.getValue();
-			if (null == valueObj) {
-				value = "";
-			} else if (valueObj instanceof String[]) {
-				String[] values = (String[]) valueObj;
-				for (int i = 0; i < values.length; i++) {
-					value = values[i] + ",";
-				}
-				value = value.substring(0, value.length() - 1);
-			} else {
-				value = valueObj.toString();
-			}
-			returnMap.put(name, value);
-		}
-		String content = returnMap.get(column).toString();
-		return content;
 	}
 
 	public static boolean arrIsNotEmpty(String[] s) {

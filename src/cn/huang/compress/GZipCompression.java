@@ -1,4 +1,4 @@
-﻿package com.huang.demo;
+﻿package compress;
 
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;

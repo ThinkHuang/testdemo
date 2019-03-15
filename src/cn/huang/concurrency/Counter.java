@@ -1,4 +1,4 @@
-package cn.huang.concurrency;
+package concurrency;
 
 public class Counter
 {

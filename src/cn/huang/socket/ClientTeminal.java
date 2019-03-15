@@ -1,4 +1,4 @@
-package cn.huang.socket;
+package socket;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -14,7 +14,7 @@ import java.util.Date;
 import org.junit.Test;
 
 /**
- * ¿Í»§¶Ë
+ * ï¿½Í»ï¿½ï¿½ï¿½
  * @author huangbing
  *
  */
@@ -23,7 +23,7 @@ public class ClientTeminal {
 	@Test
 	public void request(){
 		/**
-		 * ³õÊ¼»¯Ìõ¼şÊÇ£ºÈ·ÈÏÒªÁ¬½ÓµÄÖ÷»úºÍ·şÎñÆ÷¼àÌıµÄ¶Ë¿Ú
+		 * ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç£ï¿½È·ï¿½ï¿½Òªï¿½ï¿½ï¿½Óµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¶Ë¿ï¿½
 		 */
 		String host = "127.0.0.1";
 
@@ -32,22 +32,22 @@ public class ClientTeminal {
 		Writer writer = null;
 		Reader reader = null;
 		try {
-			// Óë·şÎñ¶Ë½øĞĞÁ¬½Ó
+			// ï¿½ï¿½ï¿½ï¿½ï¿½Ë½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			client = new Socket(host, port);
-			// ¿ªÊ¼Íù·şÎñÆ÷µÄÊä³öÁ÷ÖĞĞ´ÈëÊı¾İ
+			// ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			writer = new OutputStreamWriter(client.getOutputStream());
 			writer.write("hello server.");
 			writer.write("eof");
-			writer.flush();// Õâ¾ä»°Ç§Íò²»ÄÜÍü¼Ç£¬Èç¹ûÈ±Ê§ÁË¿ÉÄÜÔÚ·şÎñÆ÷¶ËÓÀÔ¶Ò²½ÓÊÜ²»ÁË¿Í»§¶ËµÄÊı¾İ
+			writer.flush();// ï¿½ï¿½ä»°Ç§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç£ï¿½ï¿½ï¿½ï¿½È±Ê§ï¿½Ë¿ï¿½ï¿½ï¿½ï¿½Ú·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¶Ò²ï¿½ï¿½ï¿½Ü²ï¿½ï¿½Ë¿Í»ï¿½ï¿½Ëµï¿½ï¿½ï¿½ï¿½ï¿½
 			
-			//¿ªÊ¼¶ÁÈ¡·şÎñÆ÷·µ»ØµÄĞÅÏ¢
+			//ï¿½ï¿½Ê¼ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Øµï¿½ï¿½ï¿½Ï¢
 			reader = new InputStreamReader(client.getInputStream());
 			char[] chars = new char[1024];
 			int len = 0;
 			String temp;
 			int index;
 			StringBuffer sb = new StringBuffer();
-			while ((len = (reader.read(chars))) != -1) {// ÎªÊ²Ã´²ÉÓÃ×Ö·ûÁ÷£¬²¢ÇÒÃ¿´ÎÖ»¶ÁÈ¡Ò»¸ö×Ö·û£¿£¿£¿£¿
+			while ((len = (reader.read(chars))) != -1) {// ÎªÊ²Ã´ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½Ö»ï¿½ï¿½È¡Ò»ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 				temp = new String(chars, 0, len);
 				if((index=temp.indexOf("eof"))!=-1){
 					sb.append(temp.substring(0, index));
@@ -89,7 +89,7 @@ public class ClientTeminal {
 	@Test
 	public void multiRequests(){
 		/**
-		 * ³õÊ¼»¯Ìõ¼şÊÇ£ºÈ·ÈÏÒªÁ¬½ÓµÄÖ÷»úºÍ·şÎñÆ÷¼àÌıµÄ¶Ë¿Ú
+		 * ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç£ï¿½È·ï¿½ï¿½Òªï¿½ï¿½ï¿½Óµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¶Ë¿ï¿½
 		 */
 		String host = "127.0.0.1";
 
@@ -98,23 +98,23 @@ public class ClientTeminal {
 		BufferedWriter bWriter = null;
 		BufferedReader bReader = null;
 		try {
-			// Óë·şÎñ¶Ë½øĞĞÁ¬½Ó
+			// ï¿½ï¿½ï¿½ï¿½ï¿½Ë½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			client = new Socket(host, port);
-			// ¿ªÊ¼Íù·şÎñÆ÷µÄÊä³öÁ÷ÖĞĞ´ÈëÊı¾İ
+			// ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			bWriter = new BufferedWriter(new OutputStreamWriter(client.getOutputStream()));
-			bWriter.write("ÄãºÃ server.");
+			bWriter.write("ï¿½ï¿½ï¿½ server.");
 			bWriter.write("eof\n");
-			bWriter.flush();// Õâ¾ä»°Ç§Íò²»ÄÜÍü¼Ç£¬Èç¹ûÈ±Ê§ÁË¿ÉÄÜÔÚ·şÎñÆ÷¶ËÓÀÔ¶Ò²½ÓÊÜ²»ÁË¿Í»§¶ËµÄÊı¾İ
-			//ÉèÖÃ³¬Ê±Ê±¼ä,µ¥Î»ÊÇºÁÃë
+			bWriter.flush();// ï¿½ï¿½ä»°Ç§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç£ï¿½ï¿½ï¿½ï¿½È±Ê§ï¿½Ë¿ï¿½ï¿½ï¿½ï¿½Ú·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¶Ò²ï¿½ï¿½ï¿½Ü²ï¿½ï¿½Ë¿Í»ï¿½ï¿½Ëµï¿½ï¿½ï¿½ï¿½ï¿½
+			//ï¿½ï¿½ï¿½Ã³ï¿½Ê±Ê±ï¿½ï¿½,ï¿½ï¿½Î»ï¿½Çºï¿½ï¿½ï¿½
 			client.setSoTimeout(10*1000);
-			//¿ªÊ¼¶ÁÈ¡·şÎñÆ÷·µ»ØµÄĞÅÏ¢
+			//ï¿½ï¿½Ê¼ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Øµï¿½ï¿½ï¿½Ï¢
 			bReader = new BufferedReader(new InputStreamReader(client.getInputStream(),"utf-8"));
-			//ÂÒÂëÎÊÌâÖ÷Òª³£¼ûÓÚ²»Í¬Ö÷»úÉÏ£¬ÔÚÒ»Ì¨»úÆ÷ÉÏ£¬ÎŞ·¨²âÊÔ³öÂÒÂë£¬µ±È»¿ÉÒÔÖ±½ÓÉèÖÃ½ÓÊÜÓÃutf-8,·¢ËÍÓÃgbk
+			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½Ú²ï¿½Í¬ï¿½ï¿½ï¿½ï¿½ï¿½Ï£ï¿½ï¿½ï¿½Ò»Ì¨ï¿½ï¿½ï¿½ï¿½ï¿½Ï£ï¿½ï¿½Ş·ï¿½ï¿½ï¿½ï¿½Ô³ï¿½ï¿½ï¿½ï¿½ë£¬ï¿½ï¿½È»ï¿½ï¿½ï¿½ï¿½Ö±ï¿½ï¿½ï¿½ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ï¿½ï¿½utf-8,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½gbk
 			//
 			String temp;
 			int index;
 			StringBuffer sb = new StringBuffer();
-			while ((temp = (bReader.readLine())) != null) {// ÎªÊ²Ã´²ÉÓÃ×Ö·ûÁ÷£¬²¢ÇÒÃ¿´ÎÖ»¶ÁÈ¡Ò»¸ö×Ö·û£¿£¿£¿£¿ÎÊÌâµÃµ½½â¾ö
+			while ((temp = (bReader.readLine())) != null) {// ÎªÊ²Ã´ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½Ö»ï¿½ï¿½È¡Ò»ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ãµï¿½ï¿½ï¿½ï¿½
 				
 				if((index=temp.indexOf("eof"))!=-1){
 					sb.append(temp.substring(0, index));

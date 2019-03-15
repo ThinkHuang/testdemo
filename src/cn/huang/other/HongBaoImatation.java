@@ -1,4 +1,4 @@
-﻿package cn.huang.other;
+﻿package other;
 
 import java.text.DecimalFormat;
 import java.util.Random;

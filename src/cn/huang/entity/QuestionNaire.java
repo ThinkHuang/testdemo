@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.huang.entity;
+package entity;
 
 
 /**

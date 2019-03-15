@@ -1,14 +1,12 @@
 /**
  * 
  */
-package com.huang.other;
+package other;
 
 import java.lang.reflect.Field;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-import com.huang.entity.QuestionNaire;
 
 /**
  * @author dell
@@ -18,10 +16,6 @@ public class BeanToMap {
 
 	
 	public static void main(String[] args) throws Exception {
-		
-		QuestionNaire question = new QuestionNaire();
-		Map<String,Object> map = new HashMap<String,Object>();
-		beanToMap(question, map);
 		
 	}
 

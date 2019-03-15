@@ -1,4 +1,4 @@
-package cn.huang.inheritance;
+package inheritance;
 
 public class Father
 {

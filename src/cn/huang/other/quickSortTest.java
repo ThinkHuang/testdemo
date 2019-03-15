@@ -1,4 +1,4 @@
-﻿package cn.huang.other;
+﻿package other;
 
 public class quickSortTest {
 
@@ -13,7 +13,6 @@ public class quickSortTest {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		String[] strVoid=new String[]{"11","66","22","0","44","55","22","0","32"}; 
 		quickSort(strVoid,0,strVoid.length-1); 
 		for(int i=0;i<strVoid.length;i++){ 

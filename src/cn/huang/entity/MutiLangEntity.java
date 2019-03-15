@@ -1,4 +1,4 @@
-package com.huang.entity;
+package entity;
 
 import java.util.HashMap;
 import java.util.Map;

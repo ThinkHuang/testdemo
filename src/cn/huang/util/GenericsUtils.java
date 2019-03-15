@@ -1,4 +1,4 @@
-package com.huang.util;
+package util;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -7,11 +7,6 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
-import javax.servlet.http.HttpSession;
-
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
 
 /**
  * 泛型工具类
@@ -225,18 +220,7 @@ public class GenericsUtils {
 		}
 		return value;
 	}
-	/**
-     * returns the current http session object
-     * 
-     * @return session
-     */
-    public HttpSession getSession() {   
-    	HttpSession session=null;
-        ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
-        HttpSession contextSess = attr == null ? session : attr.getRequest().getSession(true);
-        
-        return contextSess; 
-    }
+	
     /**
 	 * 得到实体类
 	 * @param objClass 实体类包含包名

@@ -1,4 +1,4 @@
-package cn.huang.tools;
+package tools;
 
 public class Stu {
 	private int id;

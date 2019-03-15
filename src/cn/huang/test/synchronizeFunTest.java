@@ -1,4 +1,4 @@
-package cn.huang.test;
+package test;
 
 public class synchronizeFunTest {
 	JManager j = new JManager();

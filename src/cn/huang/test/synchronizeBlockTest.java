@@ -1,4 +1,4 @@
-package cn.huang.test;
+package test;
 
 public class synchronizeBlockTest {
 	private int i;

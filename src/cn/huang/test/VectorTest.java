@@ -1,4 +1,4 @@
-package cn.huang.test;
+package test;
 
 import java.util.Vector;
 
