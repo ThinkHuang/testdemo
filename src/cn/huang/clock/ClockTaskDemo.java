@@ -1,8 +1,5 @@
 ﻿package clock;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.Executors;
@@ -10,18 +7,6 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.Test;
-import org.quartz.CronScheduleBuilder;
-import org.quartz.CronTrigger;
-import org.quartz.Job;
-import org.quartz.JobBuilder;
-import org.quartz.JobDetail;
-import org.quartz.JobExecutionContext;
-import org.quartz.JobExecutionException;
-import org.quartz.Scheduler;
-import org.quartz.SchedulerException;
-import org.quartz.SchedulerFactory;
-import org.quartz.TriggerBuilder;
-import org.quartz.impl.StdSchedulerFactory;
 
 /**
  * 该类主要实现Java代码的定时任务
@@ -124,62 +109,52 @@ public class ClockTaskDemo
      * 依赖jar包：log4j.jar quartz.jar slf4j-api-1.6.1.jar slf4j-log4j.jar
      * @throws SchedulerException
      */
-    @Test
-    public void task4() throws SchedulerException
-    {
-        /*
-         * 首先取得一个scheduler的引用
-         */
-        SchedulerFactory sFactory = new StdSchedulerFactory();
-        Scheduler scheduler = sFactory.getScheduler();
-        
-        /*
-         * 新建job1，该job1来自于继承的Job类
-         */
-        JobDetail job1 = JobBuilder.newJob(myJob.class).withIdentity("job1", "group1").build();
-        /*
-         * 新建定时触发器，并通过触发器设置定时执行的时间以及要执行那个定时任务，所以定时任务主要是定时触发器触发的，有Job完成具体的任务
-         */
-        CronTrigger trigger1 = TriggerBuilder.newTrigger().withIdentity("trigger1", "group1").withSchedule(CronScheduleBuilder.cronSchedule("0 0 12 * * ?")).build();
-        
-        Date dt = scheduler.scheduleJob(trigger1);
-        
-        DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        
-        System.out.println(job1.getKey() + "已被安排执行于：" + df.format(dt) + "并且以如下规则重复执行：" + trigger1.getCronExpression());
-        
-        /*
-         * 创建job2
-         */
-        JobDetail job2 = JobBuilder.newJob(myJob.class).withIdentity("job2", "group2").build();
-        
-        CronTrigger trigger2 = TriggerBuilder.newTrigger().withIdentity("trigger2", "group2").withSchedule(CronScheduleBuilder.cronSchedule("0 0 12 * * ?")).build();
-        
-        dt = scheduler.scheduleJob(trigger2);
-        
-        System.out.println(job2.getKey() + "已被安排执行于：" + df.format(dt) + "并且以如下规则重复执行：" + trigger2.getCronExpression());
-        
-        scheduler.start();
-        
-        try
-        {
-            Thread.sleep(60 * 1000);
-        }
-        catch (Exception e)
-        {
-            scheduler.shutdown(true);
-        }
-        
-    }
+//    @Test
+//    public void task4() throws SchedulerException
+//    {
+//        /*
+//         * 首先取得一个scheduler的引用
+//         */
+//        SchedulerFactory sFactory = new StdSchedulerFactory();
+//        Scheduler scheduler = sFactory.getScheduler();
+//        
+//        /*
+//         * 新建job1，该job1来自于继承的Job类
+//         */
+//        JobDetail job1 = JobBuilder.newJob(myJob.class).withIdentity("job1", "group1").build();
+//        /*
+//         * 新建定时触发器，并通过触发器设置定时执行的时间以及要执行那个定时任务，所以定时任务主要是定时触发器触发的，有Job完成具体的任务
+//         */
+//        CronTrigger trigger1 = TriggerBuilder.newTrigger().withIdentity("trigger1", "group1").withSchedule(CronScheduleBuilder.cronSchedule("0 0 12 * * ?")).build();
+//        
+//        Date dt = scheduler.scheduleJob(trigger1);
+//        
+//        DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//        
+//        System.out.println(job1.getKey() + "已被安排执行于：" + df.format(dt) + "并且以如下规则重复执行：" + trigger1.getCronExpression());
+//        
+//        /*
+//         * 创建job2
+//         */
+//        JobDetail job2 = JobBuilder.newJob(myJob.class).withIdentity("job2", "group2").build();
+//        
+//        CronTrigger trigger2 = TriggerBuilder.newTrigger().withIdentity("trigger2", "group2").withSchedule(CronScheduleBuilder.cronSchedule("0 0 12 * * ?")).build();
+//        
+//        dt = scheduler.scheduleJob(trigger2);
+//        
+//        System.out.println(job2.getKey() + "已被安排执行于：" + df.format(dt) + "并且以如下规则重复执行：" + trigger2.getCronExpression());
+//        
+//        scheduler.start();
+//        
+//        try
+//        {
+//            Thread.sleep(60 * 1000);
+//        }
+//        catch (Exception e)
+//        {
+//            scheduler.shutdown(true);
+//        }
+//        
+//    }
     
-    class myJob implements Job
-    {
-        
-        @Override
-        public void execute(JobExecutionContext arg0) throws JobExecutionException
-        {
-            
-        }
-        
-    }
 }
