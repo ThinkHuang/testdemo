@@ -1,5 +1,8 @@
 package string;
 
+import java.text.DecimalFormat;
+import java.text.Format;
+
 import org.junit.Test;
 
 /**
@@ -13,7 +16,7 @@ public class StringFormat
     @Test
     public void test()
     {
-        double str = 1.2356;
-        System.out.println(String.format("%.2f", str));
+        Format format = new DecimalFormat("0.00");
+        System.out.println(format.format(600D / 7));
     }
 }
