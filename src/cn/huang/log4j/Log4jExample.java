@@ -8,7 +8,7 @@ import org.apache.log4j.PropertyConfigurator;
 
 public class Log4jExample
 {
-    static Logger log = Logger.getLogger(Log4jExample.class.getName());
+    private static Logger log = Logger.getLogger(Log4jExample.class.getName());
     
     public static void main(String[] args)
     {

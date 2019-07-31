@@ -24,12 +24,12 @@ import java.util.regex.Pattern;
 
 import org.apache.commons.lang.RandomStringUtils;
 import org.apache.commons.lang.StringUtils;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.log4j.Logger;
 import org.dom4j.Document;
 import org.dom4j.DocumentHelper;
 import org.dom4j.io.HTMLWriter;
 import org.dom4j.io.OutputFormat;
+
 
 /**
  * 字符串处理及转换工具类
@@ -42,7 +42,7 @@ public class StringUtil {
 	private static Pattern floatNumericPattern = Pattern.compile("^[0-9\\-\\.]+$");
 	private static Pattern abcPattern = Pattern.compile("^[a-z|A-Z]+$");
 	public static final String splitStrPattern = ",|，|;|；|、|\\.|。|-|_|\\(|\\)|\\[|\\]|\\{|\\}|\\\\|/| |　|\"";
-	private static Log logger = LogFactory.getLog(StringUtil.class);
+	private static Logger logger = Logger.getLogger(StringUtil.class.getName());
 
 	/**
 	 * 判断是否合法名称,字母开头,且只包含字母,下划线,数字的为合法的名称
