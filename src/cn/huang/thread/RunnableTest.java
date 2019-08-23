@@ -1,4 +1,4 @@
-﻿package test;
+﻿package thread;
 
 public class RunnableTest implements Runnable{
 

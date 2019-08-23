@@ -1,4 +1,4 @@
-﻿package test;
+﻿package string;
 
 public class StringTest {
 
