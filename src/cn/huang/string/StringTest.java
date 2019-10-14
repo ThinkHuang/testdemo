@@ -67,6 +67,7 @@ public class StringTest {
 	  System.out.println( s2==s3 ); 
 	  System.out.println( s1+" "+s2 ); 
 	  System.out.println( s2==s1.intern() );
+	  
 	 }
 
 	//result：
@@ -91,6 +92,6 @@ public class StringTest {
 	 
 
 	//不过总觉得想到了，却还差点什么，希望大神们看看，给我一些新的提示！
-
-
+	 
+	 
 }

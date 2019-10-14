@@ -36,6 +36,5 @@ public class List_RetainAll
         {
             System.out.println("t:" + t);
         }
-        
     }
 }
