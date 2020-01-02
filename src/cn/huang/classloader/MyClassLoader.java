@@ -28,7 +28,8 @@ public class MyClassLoader extends ClassLoader {
     }
     
     /**
-     * 该方法必须要重写，否则，子类的findClass方法将不会被执行
+     * 官方文档明确提示使用者不要去重写loadClass方法，该方法的前提条件是目标class不能被父加载器加载。
+     * 而如果父加载器能够加载到，那么仅仅去重写findClass方法是无法完成自定义加载器加载class的，这个时候只能去重写loadClass方法，例如下面的形式。
      */
     @Override
     protected Class<?> loadClass(String name, boolean resolve) throws ClassNotFoundException {
