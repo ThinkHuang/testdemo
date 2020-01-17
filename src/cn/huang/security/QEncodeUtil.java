@@ -27,16 +27,17 @@ public class QEncodeUtil {
     /**
      * 测试用例
      */
-//    public static void main(String[] args) throws Exception {
-//        String userId = "b447fa412e9f467a9472e5978cdc5e11";
-//        String companyId = "05d8e9a3167e4c27ac08152cc0103b75";
-//        String content = String.valueOf((userId + companyId).hashCode());
-//        String key = String.valueOf(System.currentTimeMillis());
-//        String result = aesEncrypt(content, key);
-//        System.out.println(result);
-//        System.out.println("OmmMJjSeINdMmxAfvjeI5Q==".equals(result));
-//       
-//    }
+    public static void main(String[] args) throws Exception {
+        String userId = "2135073786";
+        String companyId = "6a965039b84d47fabb197153b9f724a6";
+        String content = String.valueOf((userId + companyId).hashCode());
+        System.out.println(content);
+        String key = "1578888423628";//String.valueOf(System.currentTimeMillis());
+        System.out.println("key:" + key);
+        String result = aesEncrypt(content, key);
+        System.out.println(result);
+       
+    }
     
     /**
      * 将byte[]转为各种进制的字符串
