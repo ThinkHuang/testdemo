@@ -20,11 +20,11 @@ public class DistributeCalculateForTest {
     
     public static void main(String[] args) {
         final CountDownLatch latch = new CountDownLatch(4);
-        List<String> list = new ArrayList<>(Arrays.asList("a", "b", "c", "d", "e", "f", "g", "h", "i"));
+        List<String> list = new ArrayList<>(Arrays.asList("a", "b", "c", "d", "e", "f", "g", "h", "i", "j"));
         int size = list.size();
-        int threadSize = 4;
+        int threadSize = 5;
         int partitionSize = size / threadSize;
-        ExecutorService executorService = Executors.newFixedThreadPool(4);
+        ExecutorService executorService = Executors.newFixedThreadPool(5);
         for (int i = 0; i < threadSize; i++) {
             List<String> segmentUserIds = list.subList(i * partitionSize, partitionSize * (i + 1));
             if (i == threadSize - 1) {
