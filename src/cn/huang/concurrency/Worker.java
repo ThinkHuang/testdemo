@@ -25,9 +25,12 @@ public class Worker implements Runnable {
             System.out.println(list);
             totalList.addAll(list);
             System.out.println("子线程" + Thread.currentThread().getName() + "执行完毕");
-            latch.countDown();// 减一
+            throw new InterruptedException();
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            Thread.currentThread().interrupt();
+        } finally {
+            // 将countDownLatch的递减放到finally中去执行，这样会确保主线程不会一直阻塞
+             latch.countDown();// 减一
         }
     }
     

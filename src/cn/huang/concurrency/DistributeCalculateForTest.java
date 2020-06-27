@@ -41,6 +41,8 @@ public class DistributeCalculateForTest {
             System.out.println(totalList);
         } catch (InterruptedException e) {
             e.printStackTrace();
+            // 当发生异常时，interrupt方法一定要被调用，否则可能导致主线程一直阻塞。发生内存泄漏
+            Thread.currentThread().interrupt();
         } finally {
             executorService.shutdown();
         }
