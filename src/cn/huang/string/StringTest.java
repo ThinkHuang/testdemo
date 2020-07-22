@@ -6,12 +6,12 @@ public class StringTest {
 	  * @param args
 	  */
 	 public static void main(String[] args) {
-	  test1();
+//	  test1();
 	  //test2();
 	  //test3();
 	  //test4();
 		//test5();
-	  
+	  test6();
 	  
 	 }
 
@@ -94,4 +94,10 @@ public class StringTest {
 	//不过总觉得想到了，却还差点什么，希望大神们看看，给我一些新的提示！
 	 
 	 
+	 private static void test6() {
+	     String a = "0,6338dd73525c4d299fb69d3fa41e3b50,773bc7fd49af4e538f3d5c3e591b1b03,";
+	     String regexp = "0,6338dd73525c4d299fb69d3fa41e3b50,d4547dce024c4508b556eed0f88dffd3,";
+	     String b = "0,6338dd73525c4d299fb69d3fa41e3b50,773bc7fd49af4e538f3d5c3e591b1b03,";
+	     System.out.println(b.replaceAll(a, regexp));
+	 }
 }

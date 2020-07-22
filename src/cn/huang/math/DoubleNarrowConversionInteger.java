@@ -18,5 +18,10 @@ public class DoubleNarrowConversionInteger
         Double d1 = 1.0d;
         int i = 1;
         System.out.println(d1 == i);
+        
+        int size = 1000;
+        System.out.println(size % 1000);
     }
+    
+    
 }
