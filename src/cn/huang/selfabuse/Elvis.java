@@ -2,12 +2,12 @@ package selfabuse;
 
 public class Elvis {
     
+    private static final Boolean LIVING = true;
     
     public static final Elvis elvis = new Elvis();
     
     private Elvis() {}
     
-    private static final Boolean LIVING = true;
     
     /**
      * 这里有两点需要注意：
