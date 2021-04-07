@@ -36,4 +36,15 @@ public class DateSort {
         
         System.out.println(sortList);
     }
+    
+    @Test
+    public void test() {
+        Date date1 = new Date();
+        System.out.println(date1.getTime());
+        
+        Date date2 = new Date();
+        System.out.println(date2.getTime());
+        
+        System.out.println(date1.after(date2));
+    }
 }

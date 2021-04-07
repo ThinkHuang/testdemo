@@ -4,6 +4,8 @@ public class TestDemo {
 	private static int NUMBER = 8;
 	public static void main(String[] args) {
 		fun1();
+		StringBuffer s = new StringBuffer("aa");
+		StringBuilder s1 = new StringBuilder("aa");
 	}
 	
 	private static void fun1() {
@@ -23,4 +25,5 @@ public class TestDemo {
 		}
 		System.out.println("There is no result to answer the question!");
 	}
+	
 }

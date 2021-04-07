@@ -1,6 +1,7 @@
 package collection;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.junit.Test;
@@ -20,14 +21,18 @@ public class ArrayListRemove
         List<String> list = new ArrayList<>();
         list.add("1");
         list.add("2");
-        // for (String item : list) // 使用Iteratable的语法糖，这个时候会抛出java.util.ConcurrentModificationException
-        for(int i = 0; i < list.size(); i++)// 使用该种方式是正常的遍历，所以不会导致出现异常。
+        
+//         for (String item : list) // 使用Iteratable的语法糖，这个时候会抛出java.util.ConcurrentModificationException
+        for (int i = 0; i < list.size(); i++)// 使用该种方式是正常的遍历，所以不会导致出现异常。
+//        for(Iterator<String> it = list.iterator(); it.hasNext();) // 使用这种方式能够正常遍历
         {
-            if ("2".equals(list.get(i)))
+            String item = list.get(i);
+            if ("2".equals(item))
             {
-                list.remove(list.get(i));
+                list.remove(item);
             }
         }
+        System.out.println(list);
         assert list.size() == 2:"删除失败";
     }
 }

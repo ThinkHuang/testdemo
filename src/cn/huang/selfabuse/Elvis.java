@@ -2,9 +2,9 @@ package selfabuse;
 
 public class Elvis {
     
-    private static final Boolean LIVING = true;
-    
     public static final Elvis elvis = new Elvis();
+    
+    private static final Boolean LIVING = true;
     
     private Elvis() {}
     
