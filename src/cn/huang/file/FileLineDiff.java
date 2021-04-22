@@ -10,7 +10,7 @@ import java.util.List;
 public class FileLineDiff {
  
     public static void main(String[] args) {
-        String path1 = "C:\\Users\\Administrator\\Desktop\\new 1.txt";
+        String path1 = "C:\\Users\\Administrator\\Desktop\\new 2.txt";
         String path2 = "C:\\Users\\Administrator\\Desktop\\new 3.txt";
         
         // 文件1的内容列表
